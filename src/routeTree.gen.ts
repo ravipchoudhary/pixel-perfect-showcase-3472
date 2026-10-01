@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ExperiencesRouteImport } from './routes/experiences'
+import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as EventsBirthdaysRouteImport } from './routes/events.birthdays'
+import { Route as EventsCorporateRouteImport } from './routes/events.corporate'
+import { Route as EventsWeddingsRouteImport } from './routes/events.weddings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperiencesRoute = ExperiencesRouteImport.update({
+  id: '/experiences',
+  path: '/experiences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsIndexRoute = EventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsBirthdaysRoute = EventsBirthdaysRouteImport.update({
+  id: '/events/birthdays',
+  path: '/events/birthdays',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsCorporateRoute = EventsCorporateRouteImport.update({
+  id: '/events/corporate',
+  path: '/events/corporate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsWeddingsRoute = EventsWeddingsRouteImport.update({
+  id: '/events/weddings',
+  path: '/events/weddings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/experiences': typeof ExperiencesRoute
+  '/events/birthdays': typeof EventsBirthdaysRoute
+  '/events/corporate': typeof EventsCorporateRoute
+  '/events/weddings': typeof EventsWeddingsRoute
+  '/events/': typeof EventsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/experiences': typeof ExperiencesRoute
+  '/events/birthdays': typeof EventsBirthdaysRoute
+  '/events/corporate': typeof EventsCorporateRoute
+  '/events/weddings': typeof EventsWeddingsRoute
+  '/events': typeof EventsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/experiences': typeof ExperiencesRoute
+  '/events/birthdays': typeof EventsBirthdaysRoute
+  '/events/corporate': typeof EventsCorporateRoute
+  '/events/weddings': typeof EventsWeddingsRoute
+  '/events/': typeof EventsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/experiences'
+    | '/events/birthdays'
+    | '/events/corporate'
+    | '/events/weddings'
+    | '/events/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/experiences'
+    | '/events/birthdays'
+    | '/events/corporate'
+    | '/events/weddings'
+    | '/events'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/experiences'
+    | '/events/birthdays'
+    | '/events/corporate'
+    | '/events/weddings'
+    | '/events/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ExperiencesRoute: typeof ExperiencesRoute
+  EventsBirthdaysRoute: typeof EventsBirthdaysRoute
+  EventsCorporateRoute: typeof EventsCorporateRoute
+  EventsWeddingsRoute: typeof EventsWeddingsRoute
+  EventsIndexRoute: typeof EventsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experiences': {
+      id: '/experiences'
+      path: '/experiences'
+      fullPath: '/experiences'
+      preLoaderRoute: typeof ExperiencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/': {
+      id: '/events/'
+      path: '/events'
+      fullPath: '/events/'
+      preLoaderRoute: typeof EventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/birthdays': {
+      id: '/events/birthdays'
+      path: '/events/birthdays'
+      fullPath: '/events/birthdays'
+      preLoaderRoute: typeof EventsBirthdaysRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/corporate': {
+      id: '/events/corporate'
+      path: '/events/corporate'
+      fullPath: '/events/corporate'
+      preLoaderRoute: typeof EventsCorporateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/weddings': {
+      id: '/events/weddings'
+      path: '/events/weddings'
+      fullPath: '/events/weddings'
+      preLoaderRoute: typeof EventsWeddingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ExperiencesRoute: ExperiencesRoute,
+  EventsBirthdaysRoute: EventsBirthdaysRoute,
+  EventsCorporateRoute: EventsCorporateRoute,
+  EventsWeddingsRoute: EventsWeddingsRoute,
+  EventsIndexRoute: EventsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
