@@ -11,7 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as B2bRouteImport } from './routes/b2b'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as OurWorkRouteImport } from './routes/our-work'
+import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as EventsBirthdaysRouteImport } from './routes/events.birthdays'
 import { Route as EventsCorporateRouteImport } from './routes/events.corporate'
@@ -27,9 +33,39 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const B2bRoute = B2bRouteImport.update({
+  id: '/b2b',
+  path: '/b2b',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExperiencesRoute = ExperiencesRouteImport.update({
   id: '/experiences',
   path: '/experiences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurWorkRoute = OurWorkRouteImport.update({
+  id: '/our-work',
+  path: '/our-work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackagesRoute = PackagesRouteImport.update({
+  id: '/packages',
+  path: '/packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsIndexRoute = EventsIndexRouteImport.update({
@@ -56,7 +92,13 @@ const EventsWeddingsRoute = EventsWeddingsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/b2b': typeof B2bRoute
+  '/contact': typeof ContactRoute
   '/experiences': typeof ExperiencesRoute
+  '/faq': typeof FaqRoute
+  '/our-work': typeof OurWorkRoute
+  '/packages': typeof PackagesRoute
+  '/testimonials': typeof TestimonialsRoute
   '/events/birthdays': typeof EventsBirthdaysRoute
   '/events/corporate': typeof EventsCorporateRoute
   '/events/weddings': typeof EventsWeddingsRoute
@@ -65,7 +107,13 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/b2b': typeof B2bRoute
+  '/contact': typeof ContactRoute
   '/experiences': typeof ExperiencesRoute
+  '/faq': typeof FaqRoute
+  '/our-work': typeof OurWorkRoute
+  '/packages': typeof PackagesRoute
+  '/testimonials': typeof TestimonialsRoute
   '/events/birthdays': typeof EventsBirthdaysRoute
   '/events/corporate': typeof EventsCorporateRoute
   '/events/weddings': typeof EventsWeddingsRoute
@@ -75,7 +123,13 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/b2b': typeof B2bRoute
+  '/contact': typeof ContactRoute
   '/experiences': typeof ExperiencesRoute
+  '/faq': typeof FaqRoute
+  '/our-work': typeof OurWorkRoute
+  '/packages': typeof PackagesRoute
+  '/testimonials': typeof TestimonialsRoute
   '/events/birthdays': typeof EventsBirthdaysRoute
   '/events/corporate': typeof EventsCorporateRoute
   '/events/weddings': typeof EventsWeddingsRoute
@@ -86,7 +140,13 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/b2b'
+    | '/contact'
     | '/experiences'
+    | '/faq'
+    | '/our-work'
+    | '/packages'
+    | '/testimonials'
     | '/events/birthdays'
     | '/events/corporate'
     | '/events/weddings'
@@ -95,7 +155,13 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/b2b'
+    | '/contact'
     | '/experiences'
+    | '/faq'
+    | '/our-work'
+    | '/packages'
+    | '/testimonials'
     | '/events/birthdays'
     | '/events/corporate'
     | '/events/weddings'
@@ -104,7 +170,13 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/b2b'
+    | '/contact'
     | '/experiences'
+    | '/faq'
+    | '/our-work'
+    | '/packages'
+    | '/testimonials'
     | '/events/birthdays'
     | '/events/corporate'
     | '/events/weddings'
@@ -114,7 +186,13 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  B2bRoute: typeof B2bRoute
+  ContactRoute: typeof ContactRoute
   ExperiencesRoute: typeof ExperiencesRoute
+  FaqRoute: typeof FaqRoute
+  OurWorkRoute: typeof OurWorkRoute
+  PackagesRoute: typeof PackagesRoute
+  TestimonialsRoute: typeof TestimonialsRoute
   EventsBirthdaysRoute: typeof EventsBirthdaysRoute
   EventsCorporateRoute: typeof EventsCorporateRoute
   EventsWeddingsRoute: typeof EventsWeddingsRoute
@@ -137,11 +215,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/b2b': {
+      id: '/b2b'
+      path: '/b2b'
+      fullPath: '/b2b'
+      preLoaderRoute: typeof B2bRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/experiences': {
       id: '/experiences'
       path: '/experiences'
       fullPath: '/experiences'
       preLoaderRoute: typeof ExperiencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-work': {
+      id: '/our-work'
+      path: '/our-work'
+      fullPath: '/our-work'
+      preLoaderRoute: typeof OurWorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packages': {
+      id: '/packages'
+      path: '/packages'
+      fullPath: '/packages'
+      preLoaderRoute: typeof PackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events/': {
@@ -178,7 +298,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  B2bRoute: B2bRoute,
+  ContactRoute: ContactRoute,
   ExperiencesRoute: ExperiencesRoute,
+  FaqRoute: FaqRoute,
+  OurWorkRoute: OurWorkRoute,
+  PackagesRoute: PackagesRoute,
+  TestimonialsRoute: TestimonialsRoute,
   EventsBirthdaysRoute: EventsBirthdaysRoute,
   EventsCorporateRoute: EventsCorporateRoute,
   EventsWeddingsRoute: EventsWeddingsRoute,
