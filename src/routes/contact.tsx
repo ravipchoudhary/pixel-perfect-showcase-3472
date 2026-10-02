@@ -15,10 +15,11 @@ import {
 export const Route = createFileRoute("/contact")({
   head: () =>
     pageMeta({
-      title: "Book Now & Check Availability | The Little Big Experience",
+      title: "Photo Booth Enquiry & Availability | The Little Big Experience",
       description:
-        "Check availability for your wedding, corporate event or birthday photo booth in Noida, Delhi, Gurgaon and Delhi NCR.",
+        "Enquire about photo booth availability for corporate events, weddings, birthdays and private celebrations across Noida, Delhi, Gurgaon and Delhi NCR.",
       path: "/contact",
+      image: "hero",
     }),
   component: Contact,
 });
@@ -51,7 +52,7 @@ function Contact() {
               <Eyebrow>Or reach us directly</Eyebrow>
               <div className="mt-8 space-y-7">
                 <div>
-                  <p className="eyebrow">Phone</p>
+                  <p className="eyebrow">Call Now</p>
                   <a
                     href={`tel:${PHONE_TEL}`}
                     className="display mt-2 block text-2xl text-ink hover:text-accent transition-colors"
@@ -60,7 +61,7 @@ function Contact() {
                   </a>
                 </div>
                 <div>
-                  <p className="eyebrow">Email</p>
+                  <p className="eyebrow">Email Us</p>
                   <a
                     href={`mailto:${EMAIL}`}
                     className="mt-2 block break-all text-base text-ink hover:text-accent transition-colors"

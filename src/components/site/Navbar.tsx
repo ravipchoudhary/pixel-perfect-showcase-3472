@@ -2,20 +2,11 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { NAV_LINKS, PHONE_DISPLAY } from "@/data/site";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => setOpen(false), [pathname]);
 
@@ -28,14 +19,7 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-          scrolled
-            ? "bg-background/92 backdrop-blur-md border-b border-border py-3"
-            : "py-5",
-        )}
-      >
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 py-3 shadow-sm backdrop-blur-md">
         <div className="shell flex items-center justify-between gap-6">
           <Link to="/" className="shrink-0 leading-none">
             <span className="display block text-base sm:text-lg tracking-[0.06em] text-ink">
@@ -86,9 +70,7 @@ export function Navbar() {
             className="fixed inset-0 z-60 bg-ink text-background overflow-y-auto"
           >
             <div className="shell flex items-center justify-between py-5">
-              <span className="display text-base tracking-[0.06em]">
-                The Little Big Experience
-              </span>
+              <span className="display text-base tracking-[0.06em]">The Little Big Experience</span>
               <button
                 type="button"
                 aria-label="Close menu"
@@ -122,7 +104,7 @@ export function Navbar() {
               </Link>
               <a
                 href={`tel:${PHONE_DISPLAY.replace(/\s/g, "")}`}
-                className="mt-4 text-center text-sm text-background/60 tracking-[0.1em]"
+                className="mt-4 text-center text-sm text-background/60 tracking-widest"
               >
                 {PHONE_DISPLAY}
               </a>

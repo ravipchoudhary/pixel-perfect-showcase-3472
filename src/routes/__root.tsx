@@ -1,21 +1,29 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
-  createRootRouteWithContext,
+  createRootRoute,
   useRouter,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { MotionConfig } from "motion/react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingCTA } from "@/components/site/FloatingCTA";
 
 function NotFoundComponent() {
+  useEffect(() => {
+    const robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex,follow";
+    robots.dataset["notFound"] = "true";
+    document.head.append(robots);
+    return () => robots.remove();
+  }, []);
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -24,12 +32,24 @@ function NotFoundComponent() {
         <p className="mt-2 text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             to="/"
             className="inline-flex items-center justify-center bg-ink px-7 py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-background transition-colors hover:bg-accent"
           >
             Go home
+          </Link>
+          <Link
+            to="/experiences"
+            className="inline-flex items-center justify-center border border-ink/25 px-7 py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-background"
+          >
+            Explore Experiences
+          </Link>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center border border-ink/25 px-7 py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-background"
+          >
+            Contact Us
           </Link>
         </div>
       </div>
@@ -40,9 +60,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -73,27 +90,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        title:
-          "Photo Booth Rental in Noida, Delhi & Gurgaon | The Little Big Experience",
-      },
-      {
-        name: "description",
-        content:
-          "Premium photo booth experiences for weddings, corporate events, birthdays and celebrations across Noida, Delhi, Gurgaon and Delhi NCR.",
-      },
-      { name: "robots", content: "index, follow" },
-      { property: "og:site_name", content: "The Little Big Experience" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -103,29 +108,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap",
-      },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "The Little Big Experience",
-          description:
-            "Premium photo booth experiences for corporate events, weddings, birthdays and celebrations across Delhi NCR.",
-          telephone: "+91 98216 93647",
-          email: "hello@thelittlebigexperience.com",
-          areaServed: [
-            "Noida",
-            "Greater Noida",
-            "Delhi",
-            "Gurgaon",
-            "Delhi NCR",
-          ],
-          sameAs: ["https://instagram.com/thelittlebigexperience"],
-        }),
       },
     ],
   }),
@@ -150,17 +132,17 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <Navbar />
-      <main>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-      </main>
-      <Footer />
-      <FloatingCTA />
-    </QueryClientProvider>
+    <MotionConfig reducedMotion="user">
+      <>
+        <Navbar />
+        <main>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </main>
+        <Footer />
+        <FloatingCTA />
+      </>
+    </MotionConfig>
   );
 }

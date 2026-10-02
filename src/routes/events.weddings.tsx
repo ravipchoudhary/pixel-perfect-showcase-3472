@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { ButtonLink, Display, Eyebrow, Reveal } from "@/components/site/primitives";
 import { CTASection, Customization, PageHero } from "@/components/site/sections";
-import wedding from "@/assets/wedding.jpg";
+import { IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
 
 const PERFECT_FOR = [
   "Engagements",
@@ -19,7 +19,6 @@ const INCLUDED = [
   "Instant Prints",
   "Custom Wedding Templates",
   "Digital Sharing",
-  "Props",
   "Boomerangs",
   "Professional Attendant",
 ];
@@ -27,10 +26,11 @@ const INCLUDED = [
 export const Route = createFileRoute("/events/weddings")({
   head: () =>
     pageMeta({
-      title: "Wedding Photo Booth | The Little Big Experience",
+      title: "Wedding Photo Booth Delhi NCR | The Little Big Experience",
       description:
-        "Photo booth experiences for engagements, mehendi, sangeet, cocktail nights and wedding receptions across Delhi NCR.",
+        "Wedding photo booth experiences for engagements, mehendi, sangeet, cocktail nights, receptions and after-parties across Delhi NCR. Check availability.",
       path: "/events/weddings",
+      image: "wedding",
     }),
   component: Weddings,
 });
@@ -74,8 +74,10 @@ function Weddings() {
           <Reveal delay={0.1}>
             <div className="hover-zoom aspect-4/5 bg-sand">
               <img
-                src={wedding}
-                alt="Couple and guests laughing at a wedding photo booth in Delhi NCR"
+                src={IMAGES.wedding}
+                srcSet={IMAGE_SRCSETS.wedding}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                alt="Guests sharing a photo at a wedding celebration"
                 loading="lazy"
                 width={1200}
                 height={1504}
@@ -118,6 +120,19 @@ function Weddings() {
       </section>
 
       <Customization />
+      <section className="section-y bg-sand">
+        <div className="shell flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <Eyebrow>Local enquiries</Eyebrow>
+            <Display className="mt-5 text-3xl sm:text-4xl">
+              Planning a wedding across Delhi NCR?
+            </Display>
+          </div>
+          <ButtonLink to="/wedding-photo-booth-delhi-ncr" variant="outline">
+            Wedding Photo Booth in Delhi NCR
+          </ButtonLink>
+        </div>
+      </section>
       <CTASection title="Let's make your wedding unforgettable." />
     </>
   );

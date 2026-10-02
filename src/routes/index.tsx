@@ -1,39 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageMeta } from "@/lib/seo";
 import { Hero } from "@/components/site/Hero";
 import { Reveal, Eyebrow, Display, ButtonLink } from "@/components/site/primitives";
 import {
   CTASection,
+  B2BSection,
   Customization,
   EventCategories,
   ExperienceGrid,
   FaqSection,
   LocationSection,
   PackagesGrid,
-  TestimonialGrid,
   WhyChooseUs,
   WorkGallery,
 } from "@/components/site/sections";
 import { FAQS } from "@/data/site";
-import wedding from "@/assets/wedding.jpg";
-
-const TITLE =
-  "Photo Booth Rental in Noida, Delhi & Gurgaon | The Little Big Experience";
-const DESC =
-  "Premium photo booth experiences for weddings, corporate events, birthdays and celebrations across Noida, Delhi, Gurgaon and Delhi NCR.";
+import { IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "Premium Photo Booth Rental in Delhi NCR | The Little Big Experience",
+      description:
+        "Premium photo booth rentals for corporate events, weddings, birthdays and private celebrations across Delhi NCR. Explore the experience and enquire today.",
+      path: "/",
+      image: "hero",
+      faqItems: FAQS.slice(0, 6),
+      includeLocalBusiness: true,
+    }),
   component: Index,
 });
 
@@ -44,8 +38,10 @@ function Intro() {
         <Reveal>
           <div className="hover-zoom aspect-4/5 bg-sand">
             <img
-              src={wedding}
-              alt="Guests gathering around a photo booth at a celebration in Delhi NCR"
+              src={IMAGES.wedding}
+              srcSet={IMAGE_SRCSETS.wedding}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              alt="Guests gathering around a photo booth"
               loading="lazy"
               width={1200}
               height={1504}
@@ -65,13 +61,12 @@ function Intro() {
           <Reveal delay={0.1}>
             <div className="mt-8 space-y-6 text-base leading-relaxed text-foreground/75 max-w-xl">
               <p>
-                At The Little Big Experience, we bring people together, get them laughing,
-                posing and creating memories they'll actually want to keep.
+                At The Little Big Experience, we bring people together, get them laughing, posing
+                and creating memories they'll actually want to keep.
               </p>
               <p>
-                Whether you're planning a corporate celebration, a wedding or a birthday
-                party, our photo booth becomes one of the most talked-about experiences at
-                the event.
+                Whether you're planning a corporate celebration, a wedding or a birthday party, our
+                photo booth becomes one of the most talked-about experiences at the event.
               </p>
             </div>
             <ButtonLink to="/about" variant="outline" className="mt-10">
@@ -95,7 +90,7 @@ function Index() {
       <Customization />
       <WorkGallery />
       <PackagesGrid />
-      <TestimonialGrid />
+      <B2BSection />
       <LocationSection />
       <FaqSection items={FAQS.slice(0, 6) as unknown as { q: string; a: string }[]} />
       <CTASection />

@@ -12,12 +12,21 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as B2bRouteImport } from './routes/b2b'
+import { Route as BirthdayPhotoBoothGurgaonRouteImport } from './routes/birthday-photo-booth-gurgaon'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CorporatePhotoBoothNoidaRouteImport } from './routes/corporate-photo-booth-noida'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as OurWorkRouteImport } from './routes/our-work'
 import { Route as PackagesRouteImport } from './routes/packages'
-import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as PhotoBoothRentalDelhiRouteImport } from './routes/photo-booth-rental-delhi'
+import { Route as PhotoBoothRentalDelhiNcrRouteImport } from './routes/photo-booth-rental-delhi-ncr'
+import { Route as PhotoBoothRentalGreaterNoidaRouteImport } from './routes/photo-booth-rental-greater-noida'
+import { Route as PhotoBoothRentalGurgaonRouteImport } from './routes/photo-booth-rental-gurgaon'
+import { Route as PhotoBoothRentalNoidaRouteImport } from './routes/photo-booth-rental-noida'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
+import { Route as WeddingPhotoBoothDelhiNcrRouteImport } from './routes/wedding-photo-booth-delhi-ncr'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as EventsBirthdaysRouteImport } from './routes/events.birthdays'
 import { Route as EventsCorporateRouteImport } from './routes/events.corporate'
@@ -38,11 +47,23 @@ const B2bRoute = B2bRouteImport.update({
   path: '/b2b',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BirthdayPhotoBoothGurgaonRoute =
+  BirthdayPhotoBoothGurgaonRouteImport.update({
+    id: '/birthday-photo-booth-gurgaon',
+    path: '/birthday-photo-booth-gurgaon',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CorporatePhotoBoothNoidaRoute =
+  CorporatePhotoBoothNoidaRouteImport.update({
+    id: '/corporate-photo-booth-noida',
+    path: '/corporate-photo-booth-noida',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ExperiencesRoute = ExperiencesRouteImport.update({
   id: '/experiences',
   path: '/experiences',
@@ -63,11 +84,49 @@ const PackagesRoute = PackagesRouteImport.update({
   path: '/packages',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TestimonialsRoute = TestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
+const PhotoBoothRentalDelhiRoute = PhotoBoothRentalDelhiRouteImport.update({
+  id: '/photo-booth-rental-delhi',
+  path: '/photo-booth-rental-delhi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PhotoBoothRentalDelhiNcrRoute =
+  PhotoBoothRentalDelhiNcrRouteImport.update({
+    id: '/photo-booth-rental-delhi-ncr',
+    path: '/photo-booth-rental-delhi-ncr',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PhotoBoothRentalGreaterNoidaRoute =
+  PhotoBoothRentalGreaterNoidaRouteImport.update({
+    id: '/photo-booth-rental-greater-noida',
+    path: '/photo-booth-rental-greater-noida',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PhotoBoothRentalGurgaonRoute = PhotoBoothRentalGurgaonRouteImport.update({
+  id: '/photo-booth-rental-gurgaon',
+  path: '/photo-booth-rental-gurgaon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhotoBoothRentalNoidaRoute = PhotoBoothRentalNoidaRouteImport.update({
+  id: '/photo-booth-rental-noida',
+  path: '/photo-booth-rental-noida',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WeddingPhotoBoothDelhiNcrRoute =
+  WeddingPhotoBoothDelhiNcrRouteImport.update({
+    id: '/wedding-photo-booth-delhi-ncr',
+    path: '/wedding-photo-booth-delhi-ncr',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
@@ -93,12 +152,21 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/b2b': typeof B2bRoute
+  '/birthday-photo-booth-gurgaon': typeof BirthdayPhotoBoothGurgaonRoute
   '/contact': typeof ContactRoute
+  '/corporate-photo-booth-noida': typeof CorporatePhotoBoothNoidaRoute
   '/experiences': typeof ExperiencesRoute
   '/faq': typeof FaqRoute
   '/our-work': typeof OurWorkRoute
   '/packages': typeof PackagesRoute
-  '/testimonials': typeof TestimonialsRoute
+  '/photo-booth-rental-delhi': typeof PhotoBoothRentalDelhiRoute
+  '/photo-booth-rental-delhi-ncr': typeof PhotoBoothRentalDelhiNcrRoute
+  '/photo-booth-rental-greater-noida': typeof PhotoBoothRentalGreaterNoidaRoute
+  '/photo-booth-rental-gurgaon': typeof PhotoBoothRentalGurgaonRoute
+  '/photo-booth-rental-noida': typeof PhotoBoothRentalNoidaRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/wedding-photo-booth-delhi-ncr': typeof WeddingPhotoBoothDelhiNcrRoute
   '/events/birthdays': typeof EventsBirthdaysRoute
   '/events/corporate': typeof EventsCorporateRoute
   '/events/weddings': typeof EventsWeddingsRoute
@@ -108,12 +176,21 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/b2b': typeof B2bRoute
+  '/birthday-photo-booth-gurgaon': typeof BirthdayPhotoBoothGurgaonRoute
   '/contact': typeof ContactRoute
+  '/corporate-photo-booth-noida': typeof CorporatePhotoBoothNoidaRoute
   '/experiences': typeof ExperiencesRoute
   '/faq': typeof FaqRoute
   '/our-work': typeof OurWorkRoute
   '/packages': typeof PackagesRoute
-  '/testimonials': typeof TestimonialsRoute
+  '/photo-booth-rental-delhi': typeof PhotoBoothRentalDelhiRoute
+  '/photo-booth-rental-delhi-ncr': typeof PhotoBoothRentalDelhiNcrRoute
+  '/photo-booth-rental-greater-noida': typeof PhotoBoothRentalGreaterNoidaRoute
+  '/photo-booth-rental-gurgaon': typeof PhotoBoothRentalGurgaonRoute
+  '/photo-booth-rental-noida': typeof PhotoBoothRentalNoidaRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/wedding-photo-booth-delhi-ncr': typeof WeddingPhotoBoothDelhiNcrRoute
   '/events/birthdays': typeof EventsBirthdaysRoute
   '/events/corporate': typeof EventsCorporateRoute
   '/events/weddings': typeof EventsWeddingsRoute
@@ -124,12 +201,21 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/b2b': typeof B2bRoute
+  '/birthday-photo-booth-gurgaon': typeof BirthdayPhotoBoothGurgaonRoute
   '/contact': typeof ContactRoute
+  '/corporate-photo-booth-noida': typeof CorporatePhotoBoothNoidaRoute
   '/experiences': typeof ExperiencesRoute
   '/faq': typeof FaqRoute
   '/our-work': typeof OurWorkRoute
   '/packages': typeof PackagesRoute
-  '/testimonials': typeof TestimonialsRoute
+  '/photo-booth-rental-delhi': typeof PhotoBoothRentalDelhiRoute
+  '/photo-booth-rental-delhi-ncr': typeof PhotoBoothRentalDelhiNcrRoute
+  '/photo-booth-rental-greater-noida': typeof PhotoBoothRentalGreaterNoidaRoute
+  '/photo-booth-rental-gurgaon': typeof PhotoBoothRentalGurgaonRoute
+  '/photo-booth-rental-noida': typeof PhotoBoothRentalNoidaRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/wedding-photo-booth-delhi-ncr': typeof WeddingPhotoBoothDelhiNcrRoute
   '/events/birthdays': typeof EventsBirthdaysRoute
   '/events/corporate': typeof EventsCorporateRoute
   '/events/weddings': typeof EventsWeddingsRoute
@@ -141,12 +227,21 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/b2b'
+    | '/birthday-photo-booth-gurgaon'
     | '/contact'
+    | '/corporate-photo-booth-noida'
     | '/experiences'
     | '/faq'
     | '/our-work'
     | '/packages'
-    | '/testimonials'
+    | '/photo-booth-rental-delhi'
+    | '/photo-booth-rental-delhi-ncr'
+    | '/photo-booth-rental-greater-noida'
+    | '/photo-booth-rental-gurgaon'
+    | '/photo-booth-rental-noida'
+    | '/privacy-policy'
+    | '/terms-and-conditions'
+    | '/wedding-photo-booth-delhi-ncr'
     | '/events/birthdays'
     | '/events/corporate'
     | '/events/weddings'
@@ -156,12 +251,21 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/b2b'
+    | '/birthday-photo-booth-gurgaon'
     | '/contact'
+    | '/corporate-photo-booth-noida'
     | '/experiences'
     | '/faq'
     | '/our-work'
     | '/packages'
-    | '/testimonials'
+    | '/photo-booth-rental-delhi'
+    | '/photo-booth-rental-delhi-ncr'
+    | '/photo-booth-rental-greater-noida'
+    | '/photo-booth-rental-gurgaon'
+    | '/photo-booth-rental-noida'
+    | '/privacy-policy'
+    | '/terms-and-conditions'
+    | '/wedding-photo-booth-delhi-ncr'
     | '/events/birthdays'
     | '/events/corporate'
     | '/events/weddings'
@@ -171,12 +275,21 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/b2b'
+    | '/birthday-photo-booth-gurgaon'
     | '/contact'
+    | '/corporate-photo-booth-noida'
     | '/experiences'
     | '/faq'
     | '/our-work'
     | '/packages'
-    | '/testimonials'
+    | '/photo-booth-rental-delhi'
+    | '/photo-booth-rental-delhi-ncr'
+    | '/photo-booth-rental-greater-noida'
+    | '/photo-booth-rental-gurgaon'
+    | '/photo-booth-rental-noida'
+    | '/privacy-policy'
+    | '/terms-and-conditions'
+    | '/wedding-photo-booth-delhi-ncr'
     | '/events/birthdays'
     | '/events/corporate'
     | '/events/weddings'
@@ -187,12 +300,21 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   B2bRoute: typeof B2bRoute
+  BirthdayPhotoBoothGurgaonRoute: typeof BirthdayPhotoBoothGurgaonRoute
   ContactRoute: typeof ContactRoute
+  CorporatePhotoBoothNoidaRoute: typeof CorporatePhotoBoothNoidaRoute
   ExperiencesRoute: typeof ExperiencesRoute
   FaqRoute: typeof FaqRoute
   OurWorkRoute: typeof OurWorkRoute
   PackagesRoute: typeof PackagesRoute
-  TestimonialsRoute: typeof TestimonialsRoute
+  PhotoBoothRentalDelhiRoute: typeof PhotoBoothRentalDelhiRoute
+  PhotoBoothRentalDelhiNcrRoute: typeof PhotoBoothRentalDelhiNcrRoute
+  PhotoBoothRentalGreaterNoidaRoute: typeof PhotoBoothRentalGreaterNoidaRoute
+  PhotoBoothRentalGurgaonRoute: typeof PhotoBoothRentalGurgaonRoute
+  PhotoBoothRentalNoidaRoute: typeof PhotoBoothRentalNoidaRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  WeddingPhotoBoothDelhiNcrRoute: typeof WeddingPhotoBoothDelhiNcrRoute
   EventsBirthdaysRoute: typeof EventsBirthdaysRoute
   EventsCorporateRoute: typeof EventsCorporateRoute
   EventsWeddingsRoute: typeof EventsWeddingsRoute
@@ -222,11 +344,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof B2bRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/birthday-photo-booth-gurgaon': {
+      id: '/birthday-photo-booth-gurgaon'
+      path: '/birthday-photo-booth-gurgaon'
+      fullPath: '/birthday-photo-booth-gurgaon'
+      preLoaderRoute: typeof BirthdayPhotoBoothGurgaonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate-photo-booth-noida': {
+      id: '/corporate-photo-booth-noida'
+      path: '/corporate-photo-booth-noida'
+      fullPath: '/corporate-photo-booth-noida'
+      preLoaderRoute: typeof CorporatePhotoBoothNoidaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experiences': {
@@ -257,11 +393,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PackagesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/testimonials': {
-      id: '/testimonials'
-      path: '/testimonials'
-      fullPath: '/testimonials'
-      preLoaderRoute: typeof TestimonialsRouteImport
+    '/photo-booth-rental-delhi': {
+      id: '/photo-booth-rental-delhi'
+      path: '/photo-booth-rental-delhi'
+      fullPath: '/photo-booth-rental-delhi'
+      preLoaderRoute: typeof PhotoBoothRentalDelhiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photo-booth-rental-delhi-ncr': {
+      id: '/photo-booth-rental-delhi-ncr'
+      path: '/photo-booth-rental-delhi-ncr'
+      fullPath: '/photo-booth-rental-delhi-ncr'
+      preLoaderRoute: typeof PhotoBoothRentalDelhiNcrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photo-booth-rental-greater-noida': {
+      id: '/photo-booth-rental-greater-noida'
+      path: '/photo-booth-rental-greater-noida'
+      fullPath: '/photo-booth-rental-greater-noida'
+      preLoaderRoute: typeof PhotoBoothRentalGreaterNoidaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photo-booth-rental-gurgaon': {
+      id: '/photo-booth-rental-gurgaon'
+      path: '/photo-booth-rental-gurgaon'
+      fullPath: '/photo-booth-rental-gurgaon'
+      preLoaderRoute: typeof PhotoBoothRentalGurgaonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photo-booth-rental-noida': {
+      id: '/photo-booth-rental-noida'
+      path: '/photo-booth-rental-noida'
+      fullPath: '/photo-booth-rental-noida'
+      preLoaderRoute: typeof PhotoBoothRentalNoidaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wedding-photo-booth-delhi-ncr': {
+      id: '/wedding-photo-booth-delhi-ncr'
+      path: '/wedding-photo-booth-delhi-ncr'
+      fullPath: '/wedding-photo-booth-delhi-ncr'
+      preLoaderRoute: typeof WeddingPhotoBoothDelhiNcrRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events/': {
@@ -299,12 +484,21 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   B2bRoute: B2bRoute,
+  BirthdayPhotoBoothGurgaonRoute: BirthdayPhotoBoothGurgaonRoute,
   ContactRoute: ContactRoute,
+  CorporatePhotoBoothNoidaRoute: CorporatePhotoBoothNoidaRoute,
   ExperiencesRoute: ExperiencesRoute,
   FaqRoute: FaqRoute,
   OurWorkRoute: OurWorkRoute,
   PackagesRoute: PackagesRoute,
-  TestimonialsRoute: TestimonialsRoute,
+  PhotoBoothRentalDelhiRoute: PhotoBoothRentalDelhiRoute,
+  PhotoBoothRentalDelhiNcrRoute: PhotoBoothRentalDelhiNcrRoute,
+  PhotoBoothRentalGreaterNoidaRoute: PhotoBoothRentalGreaterNoidaRoute,
+  PhotoBoothRentalGurgaonRoute: PhotoBoothRentalGurgaonRoute,
+  PhotoBoothRentalNoidaRoute: PhotoBoothRentalNoidaRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
+  WeddingPhotoBoothDelhiNcrRoute: WeddingPhotoBoothDelhiNcrRoute,
   EventsBirthdaysRoute: EventsBirthdaysRoute,
   EventsCorporateRoute: EventsCorporateRoute,
   EventsWeddingsRoute: EventsWeddingsRoute,
@@ -315,11 +509,10 @@ export const routeTree = rootRouteImport
   ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
+import type { createStart } from '@tanstack/react-start'
 declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
   }
 }

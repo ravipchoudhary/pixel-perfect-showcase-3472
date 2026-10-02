@@ -7,10 +7,11 @@ import { EVENT_CATEGORIES } from "@/data/site";
 export const Route = createFileRoute("/events/")({
   head: () =>
     pageMeta({
-      title: "Events We Work On | The Little Big Experience",
+      title: "Photo Booth Event Experiences | The Little Big Experience",
       description:
-        "Photo booth experiences for corporate events, weddings, birthdays and private celebrations across Noida, Delhi, Gurgaon and Delhi NCR.",
+        "Explore corporate events, weddings, birthdays and private celebrations suited to our photo booth experience across Delhi NCR. Find your occasion and enquire.",
       path: "/events",
+      image: "corporate",
     }),
   component: Events,
 });

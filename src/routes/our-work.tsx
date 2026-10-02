@@ -7,8 +7,9 @@ export const Route = createFileRoute("/our-work")({
     pageMeta({
       title: "Our Work | The Little Big Experience",
       description:
-        "A look at the corporate events, weddings, birthdays and celebrations we bring our photo booth experience to across Delhi NCR.",
+        "Browse corporate, wedding, birthday and private celebration categories for our photo booth experience in Delhi NCR. Discuss your event with our team.",
       path: "/our-work",
+      image: "hero",
     }),
   component: OurWork,
 });
@@ -20,12 +21,12 @@ function OurWork() {
         eyebrow="Our Work"
         title={
           <>
-            Real events.
+            Moments made
             <br />
-            Real memories.
+            together.
           </>
         }
-        copy="A case-study look at the celebrations our booth has been part of."
+        copy="Explore the kinds of corporate, wedding, birthday and private celebrations a photo booth can complement."
       />
       <WorkGallery />
       <CTASection />

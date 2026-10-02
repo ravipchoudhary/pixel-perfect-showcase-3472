@@ -1,14 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { pageMeta } from "@/lib/seo";
 import { CTASection, FaqSection, PageHero } from "@/components/site/sections";
+import { FAQS } from "@/data/site";
 
 export const Route = createFileRoute("/faq")({
   head: () =>
     pageMeta({
       title: "Photo Booth FAQ | The Little Big Experience",
       description:
-        "Answers about photo booth rentals, instant prints, custom templates, attendants, availability and coverage across Delhi NCR.",
+        "Find answers about photo booth features, event types, custom templates and Delhi NCR coverage. Learn what is included, then check your date or request a quote.",
       path: "/faq",
+      image: "hero",
+      faqItems: FAQS,
     }),
   component: Faq,
 });

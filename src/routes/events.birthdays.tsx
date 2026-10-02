@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { ButtonLink, Display, Eyebrow, Reveal } from "@/components/site/primitives";
 import { CTASection, PageHero, WhyChooseUs } from "@/components/site/sections";
-import birthday from "@/assets/birthday.jpg";
+import { IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
 
 const PERFECT_FOR = [
   "Teen birthdays",
@@ -19,10 +19,11 @@ const PERFECT_FOR = [
 export const Route = createFileRoute("/events/birthdays")({
   head: () =>
     pageMeta({
-      title: "Birthday & Celebration Photo Booth | The Little Big Experience",
+      title: "Birthday Photo Booth Delhi NCR | The Little Big Experience",
       description:
-        "Photo booth experiences for teen parties, milestone birthdays, family celebrations and private events across Delhi NCR.",
+        "Photo booth experiences for teen parties, Sweet 16s, milestone birthdays, family gatherings and private celebrations across Delhi NCR. Check your date.",
       path: "/events/birthdays",
+      image: "birthday",
     }),
   component: Birthdays,
 });
@@ -50,8 +51,10 @@ function Birthdays() {
           <Reveal>
             <div className="hover-zoom aspect-4/5 bg-sand">
               <img
-                src={birthday}
-                alt="Friends posing with props at a birthday photo booth"
+                src={IMAGES.birthday}
+                srcSet={IMAGE_SRCSETS.birthday}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                alt="Guests posing together for a photo"
                 loading="lazy"
                 width={1200}
                 height={1504}
@@ -62,12 +65,9 @@ function Birthdays() {
           <div>
             <Reveal>
               <Eyebrow>Perfect for</Eyebrow>
-              <Display className="mt-6 text-3xl sm:text-4xl">
-                Every excuse to celebrate.
-              </Display>
+              <Display className="mt-6 text-3xl sm:text-4xl">Every excuse to celebrate.</Display>
               <p className="mt-6 max-w-lg text-base leading-relaxed text-foreground/75">
-                Perfect for birthdays, teenage parties, family celebrations and private
-                events.
+                Perfect for birthdays, teenage parties, family celebrations and private events.
               </p>
             </Reveal>
             <div className="mt-9 grid gap-y-3 gap-x-8 sm:grid-cols-2">
@@ -90,6 +90,17 @@ function Birthdays() {
       </section>
 
       <WhyChooseUs />
+      <section className="section-y bg-sand">
+        <div className="shell flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <Eyebrow>Local enquiries</Eyebrow>
+            <Display className="mt-5 text-3xl sm:text-4xl">Planning a birthday in Gurgaon?</Display>
+          </div>
+          <ButtonLink to="/birthday-photo-booth-gurgaon" variant="outline">
+            Birthday Photo Booth in Gurgaon
+          </ButtonLink>
+        </div>
+      </section>
       <CTASection title="Let's make your party unforgettable." />
     </>
   );

@@ -4,15 +4,16 @@ import { pageMeta } from "@/lib/seo";
 import { ButtonAnchor, Display, Eyebrow, Reveal } from "@/components/site/primitives";
 import { CTASection, PageHero } from "@/components/site/sections";
 import { B2B_INCLUDES, EMAIL } from "@/data/site";
-import corporate from "@/assets/corporate.jpg";
+import { IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
 
 export const Route = createFileRoute("/b2b")({
   head: () =>
     pageMeta({
-      title: "Start Your Own Photo Booth Business | The Little Big Experience",
+      title: "Start a Photo Booth Business | The Little Big Experience",
       description:
-        "Photo booth setup, printing equipment, software, custom templates, training and operational support to launch your own photo booth service.",
+        "Explore photo booth setup, printing equipment, software, custom templates, training and operational support for planners, photographers and entrepreneurs.",
       path: "/b2b",
+      image: "corporate",
     }),
   component: B2B,
 });
@@ -38,14 +39,14 @@ function B2B() {
             <Reveal>
               <div className="space-y-6 text-base leading-relaxed text-foreground/75 max-w-xl">
                 <p>
-                  We provide everything you need to get started — from the photo booth
-                  setup and printing equipment to software, custom templates, training and
-                  operational support.
+                  We provide everything you need to get started — from the photo booth setup and
+                  printing equipment to software, custom templates, training and operational
+                  support.
                 </p>
                 <p>
-                  Whether you're an event planner, photographer, entrepreneur or an
-                  existing event business, our ready-to-use solutions help you launch your
-                  own photo booth service and start taking bookings with confidence.
+                  Whether you're an event planner, photographer, entrepreneur or an existing event
+                  business, our ready-to-use solutions help you launch your own photo booth service
+                  and start taking bookings with confidence.
                 </p>
               </div>
             </Reveal>
@@ -61,8 +62,10 @@ function B2B() {
           <Reveal delay={0.08}>
             <div className="hover-zoom aspect-4/5 bg-sand">
               <img
-                src={corporate}
-                alt="Photo booth setup running at a professional event"
+                src={IMAGES.corporate}
+                srcSet={IMAGE_SRCSETS.corporate}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                alt="Photo booth setup at an event"
                 loading="lazy"
                 width={1200}
                 height={1504}
@@ -93,6 +96,27 @@ function B2B() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section-y bg-sand">
+        <div className="shell">
+          <Reveal>
+            <Eyebrow>Getting started</Eyebrow>
+            <Display className="mt-6">A clear path from setup to launch.</Display>
+          </Reveal>
+          <ol className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {["Choose Your Setup", "Get Equipped", "Get Trained", "Launch Your Service"].map(
+              (step, index) => (
+                <Reveal key={step} delay={index * 0.05}>
+                  <li className="border-t border-ink/20 pt-5">
+                    <span className="display text-xl text-accent">0{index + 1}</span>
+                    <h2 className="display mt-4 text-xl text-ink">{step}</h2>
+                  </li>
+                </Reveal>
+              ),
+            )}
+          </ol>
         </div>
       </section>
 

@@ -15,6 +15,7 @@ export const Route = createFileRoute("/experiences")({
       description:
         "Instant prints, digital sharing, boomerangs, custom templates and a professional attendant — the full photo booth experience across Delhi NCR.",
       path: "/experiences",
+      image: "birthday",
     }),
   component: Experiences,
 });

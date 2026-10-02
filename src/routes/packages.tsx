@@ -8,8 +8,10 @@ export const Route = createFileRoute("/packages")({
     pageMeta({
       title: "Photo Booth Packages | The Little Big Experience",
       description:
-        "Essential, Signature and Corporate photo booth packages for celebrations and company events across Delhi NCR.",
+        "Explore photo booth packages for corporate events, weddings and private celebrations across Delhi NCR. Share your date and needs to request pricing.",
       path: "/packages",
+      image: "birthday",
+      faqItems: FAQS.slice(0, 5),
     }),
   component: Packages,
 });
@@ -30,7 +32,7 @@ function Packages() {
         image="birthday"
       />
       <PackagesGrid />
-      <FaqSection items={FAQS.slice(0, 5) as unknown as { q: string; a: string }[]} />
+      <FaqSection items={FAQS.slice(0, 5)} />
       <CTASection primary="Get a Quote" />
     </>
   );

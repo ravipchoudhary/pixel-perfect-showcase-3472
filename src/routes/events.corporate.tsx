@@ -4,7 +4,7 @@ import { pageMeta } from "@/lib/seo";
 import { ButtonLink, Display, Eyebrow, Reveal } from "@/components/site/primitives";
 import { CTASection, PageHero, WhyChooseUs } from "@/components/site/sections";
 import { EVENT_CATEGORIES } from "@/data/site";
-import corporate from "@/assets/corporate.jpg";
+import { IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
 
 const BRANDING = [
   "Branded photo templates",
@@ -20,10 +20,11 @@ const BRANDING = [
 export const Route = createFileRoute("/events/corporate")({
   head: () =>
     pageMeta({
-      title: "Corporate Photo Booth Experiences | The Little Big Experience",
+      title: "Corporate Photo Booth Delhi NCR | The Little Big Experience",
       description:
-        "Branded photo booth experiences for annual days, Diwali parties, product launches, brand activations and town halls across Delhi NCR.",
+        "Branded photo booth experiences for annual days, festive parties, launches, activations and conferences across Delhi NCR. Share your event date to enquire.",
       path: "/events/corporate",
+      image: "corporate",
     }),
   component: Corporate,
 });
@@ -50,8 +51,10 @@ function Corporate() {
           <Reveal>
             <div className="hover-zoom aspect-4/5 bg-sand">
               <img
-                src={corporate}
-                alt="Colleagues holding printed photo strips at a corporate annual day"
+                src={IMAGES.corporate}
+                srcSet={IMAGE_SRCSETS.corporate}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                alt="Guests holding printed photo strips"
                 loading="lazy"
                 width={1200}
                 height={1504}
@@ -111,6 +114,19 @@ function Corporate() {
       </section>
 
       <WhyChooseUs />
+      <section className="section-y bg-sand">
+        <div className="shell flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <Eyebrow>Local enquiries</Eyebrow>
+            <Display className="mt-5 text-3xl sm:text-4xl">
+              Planning a corporate event in Noida?
+            </Display>
+          </div>
+          <ButtonLink to="/corporate-photo-booth-noida" variant="outline">
+            Corporate Photo Booth in Noida
+          </ButtonLink>
+        </div>
+      </section>
       <CTASection title="Let's plan your corporate experience." primary="Get a Corporate Quote" />
     </>
   );

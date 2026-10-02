@@ -14,7 +14,7 @@ import {
 function Col({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <p className="eyebrow text-background/45 mb-5">{title}</p>
+      <p className="eyebrow text-background/70 mb-5">{title}</p>
       <ul className="space-y-2.5 text-sm text-background/70">{children}</ul>
     </div>
   );
@@ -28,9 +28,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <p className="display text-3xl sm:text-4xl leading-[0.95]">{BRAND}</p>
             <p className="mt-5 text-sm text-background/60 max-w-xs">
-              Premium photo booth experiences.
-              <br />
-              Delhi NCR.
+              Premium Photo Booth &amp; Event Experiences across Delhi NCR.
             </p>
           </div>
 
@@ -70,8 +68,8 @@ export function Footer() {
               ))}
             </Col>
 
-            <Col title="Locations">
-              {LOCATIONS.slice(0, 4).map((l) => (
+            <Col title="Service Areas">
+              {LOCATIONS.map((l) => (
                 <li key={l.name}>
                   <Link to={l.to} className="link-underline hover:text-background">
                     {l.name}
@@ -87,7 +85,10 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`mailto:${EMAIL}`} className="link-underline hover:text-background break-all">
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="link-underline hover:text-background break-all"
+                >
                   {EMAIL}
                 </a>
               </li>
@@ -105,7 +106,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-background/15 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-[0.7rem] uppercase tracking-[0.16em] text-background/45">
+        <div className="mt-16 pt-8 border-t border-background/15 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-[0.7rem] uppercase tracking-[0.16em] text-background/65">
           <p>© 2026 {BRAND}. All Rights Reserved.</p>
           <div className="flex gap-6">
             <Link to="/privacy-policy" className="hover:text-background">

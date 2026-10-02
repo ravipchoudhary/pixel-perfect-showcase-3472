@@ -1,17 +1,23 @@
 import { motion } from "motion/react";
-import heroImg from "@/assets/hero.jpg";
-import { ButtonLink } from "./primitives";
+import { IMAGE_SRCSETS, IMAGES } from "./images";
+import { ButtonAnchor, ButtonLink } from "./primitives";
+import { WHATSAPP_URL } from "@/data/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink">
+    <section className="relative flex min-h-svh items-end overflow-hidden bg-ink">
       <motion.img
-        src={heroImg}
-        alt="Guests laughing and posing at a premium photo booth during an evening event in Delhi NCR"
+        src={IMAGES.hero}
+        srcSet={IMAGE_SRCSETS.hero}
+        sizes="100vw"
+        alt="Guests sharing a moment around a photo booth"
         width={1600}
         height={1008}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 2.4, ease }}
@@ -20,39 +26,17 @@ export function Hero() {
       <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/55 to-ink/35" />
 
       <div className="shell relative z-10 pb-28 pt-40 md:pb-24">
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease }}
-          className="eyebrow text-background/70"
-        >
-          Noida • Delhi • Gurgaon • Delhi NCR
-        </motion.p>
+        <p className="eyebrow text-background/70">Noida • Delhi • Gurgaon • Delhi NCR</p>
 
         <h1 className="display mt-6 text-[clamp(2.75rem,9vw,8.5rem)] text-background">
-          {["Make your event", "unforgettable."].map((line, i) => (
-            <span key={line} className="block overflow-hidden">
-              <motion.span
-                className="block"
-                initial={{ y: "110%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1, delay: 0.3 + i * 0.12, ease }}
-              >
-                {line}
-              </motion.span>
-            </span>
-          ))}
+          <span className="block">Premium photo booth</span>
+          <span className="block">experiences in Delhi NCR</span>
         </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.65, ease }}
-          className="mt-8 max-w-xl text-base sm:text-lg leading-relaxed text-background/75"
-        >
-          Premium photo booth experiences for corporate events, weddings, birthdays and
-          celebrations across Delhi NCR.
-        </motion.p>
+        <p className="mt-8 max-w-xl text-base sm:text-lg leading-relaxed text-background/75">
+          Interactive experiences for corporate events, weddings, birthdays and private
+          celebrations.
+        </p>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -60,10 +44,10 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.78, ease }}
           className="mt-10 flex flex-wrap gap-4"
         >
-          <ButtonLink to="/contact">Book Your Photo Booth</ButtonLink>
-          <ButtonLink to="/experiences" variant="light">
-            Explore Experiences
-          </ButtonLink>
+          <ButtonLink to="/contact">Book / Enquire Now</ButtonLink>
+          <ButtonAnchor href={WHATSAPP_URL} target="_blank" rel="noreferrer" variant="light">
+            WhatsApp Us
+          </ButtonAnchor>
         </motion.div>
 
         <motion.div
