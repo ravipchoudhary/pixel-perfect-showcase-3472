@@ -1,31 +1,54 @@
-import { type FormEvent } from "react";
-import { buildWhatsAppUrl, EVENT_TYPE_OPTIONS } from "@/data/site";
+import { useState, type FormEvent } from "react";
+import { EVENT_TYPE_OPTIONS } from "@/data/site";
 
 const field =
   "w-full border-b border-border bg-transparent py-3 text-sm text-ink placeholder:text-muted-foreground/70 focus:border-accent focus:outline-none transition-colors";
 const labelCls = "eyebrow block mb-1";
 
 export function EnquiryForm() {
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const get = (k: string) => String(fd.get(k) ?? "").trim();
-    const message = [
-      "Hello The Little Big Experience, I'd like to enquire about a photo booth.",
-      "",
-      `Name: ${get("name")}`,
-      `Phone: ${get("phone")}`,
-      `Email: ${get("email") || "Not provided"}`,
-      `Event type: ${get("eventType") || "Not provided"}`,
-      `Event date: ${get("eventDate") || "Not provided"}`,
-      `Venue / city: ${get("location") || "Not provided"}`,
-      `Approximate guest count: ${get("guests") || "Not provided"}`,
-      `Required hours: ${get("hours") || "Not provided"}`,
-      "",
-      `Message: ${get("message") || "Not provided"}`,
-    ].join("\n");
+  const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-    window.location.assign(buildWhatsAppUrl(message));
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.append("access_key", "a80902b8-5f29-4a37-b8db-a0e9d6628f84");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setIsSubmitted(true);
+      } else {
+        setStatus("Unable to send your enquiry. Please try again.");
+      }
+    } catch {
+      setStatus("Unable to send your enquiry. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="py-8" role="status" aria-live="polite">
+        <p className="eyebrow">Thank You</p>
+        <h2 className="display mt-3 text-3xl text-ink">Your enquiry has been sent.</h2>
+        <p className="mt-4 text-base text-foreground/75">
+          We have received your details and will get back to you soon.
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -137,10 +160,14 @@ export function EnquiryForm() {
       <div className="sm:col-span-2 flex flex-wrap items-center gap-4 pt-2">
         <button
           type="submit"
+          disabled={isSubmitting}
           className="inline-flex items-center justify-center bg-ink px-8 py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-background transition-colors duration-500 hover:bg-accent"
         >
-          Check Availability
+          {isSubmitting ? "Sending..." : "Check Availability"}
         </button>
+        <p className="text-sm text-muted-foreground" role="status" aria-live="polite">
+          {status}
+        </p>
       </div>
     </form>
   );
