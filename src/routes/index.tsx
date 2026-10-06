@@ -4,7 +4,6 @@ import { Hero } from "@/components/site/Hero";
 import { Reveal, Eyebrow, Display, ButtonLink } from "@/components/site/primitives";
 import {
   CTASection,
-  B2BSection,
   Customization,
   EventCategories,
   ExperienceGrid,
@@ -38,10 +37,10 @@ function Intro() {
         <Reveal>
           <div className="hover-zoom aspect-4/5 bg-sand">
             <img
-              src={IMAGES.wedding}
-              srcSet={IMAGE_SRCSETS.wedding}
+              src={IMAGES.corporate}
+              srcSet={IMAGE_SRCSETS.corporate}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              alt="Guests gathering around a photo booth"
+              alt="Indian guests enjoying a photo booth at a corporate celebration"
               loading="lazy"
               width={1200}
               height={1504}
@@ -90,7 +89,6 @@ function Index() {
       <Customization />
       <WorkGallery />
       <PackagesGrid />
-      <B2BSection />
       <LocationSection />
       <FaqSection items={FAQS.slice(0, 6) as unknown as { q: string; a: string }[]} />
       <CTASection />

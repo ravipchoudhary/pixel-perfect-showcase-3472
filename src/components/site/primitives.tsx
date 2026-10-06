@@ -58,13 +58,13 @@ type BtnProps = {
 };
 
 const btnBase =
-  "inline-flex items-center justify-center gap-2 px-7 py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] transition-all duration-500 rounded-xs";
+  "inline-flex items-center justify-center gap-2 px-7 py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] transition-all duration-500 rounded-sm shadow-[0_12px_30px_rgba(61,38,53,0.09)]";
 
 const btnVariants = {
-  solid: "bg-ink text-background hover:bg-accent",
-  outline: "border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-background",
+  solid: "bg-ink text-background hover:bg-[#4a2f3f]",
+  outline: "border border-ink/20 bg-background/70 text-ink hover:border-ink hover:bg-ink hover:text-background",
   light:
-    "border border-background/40 text-background backdrop-blur-[2px] hover:bg-background hover:text-ink",
+    "border border-background/35 bg-background/10 text-background backdrop-blur-[2px] hover:bg-background hover:text-ink",
 };
 
 export function ButtonLink({

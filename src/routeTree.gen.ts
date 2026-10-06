@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as B2bRouteImport } from './routes/b2b'
 import { Route as BirthdayPhotoBoothGurgaonRouteImport } from './routes/birthday-photo-booth-gurgaon'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CorporatePhotoBoothNoidaRouteImport } from './routes/corporate-photo-booth-noida'
@@ -40,11 +39,6 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const B2bRoute = B2bRouteImport.update({
-  id: '/b2b',
-  path: '/b2b',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BirthdayPhotoBoothGurgaonRoute =
@@ -151,7 +145,6 @@ const EventsWeddingsRoute = EventsWeddingsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/b2b': typeof B2bRoute
   '/birthday-photo-booth-gurgaon': typeof BirthdayPhotoBoothGurgaonRoute
   '/contact': typeof ContactRoute
   '/corporate-photo-booth-noida': typeof CorporatePhotoBoothNoidaRoute
@@ -175,7 +168,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/b2b': typeof B2bRoute
   '/birthday-photo-booth-gurgaon': typeof BirthdayPhotoBoothGurgaonRoute
   '/contact': typeof ContactRoute
   '/corporate-photo-booth-noida': typeof CorporatePhotoBoothNoidaRoute
@@ -200,7 +192,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/b2b': typeof B2bRoute
   '/birthday-photo-booth-gurgaon': typeof BirthdayPhotoBoothGurgaonRoute
   '/contact': typeof ContactRoute
   '/corporate-photo-booth-noida': typeof CorporatePhotoBoothNoidaRoute
@@ -226,7 +217,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/b2b'
     | '/birthday-photo-booth-gurgaon'
     | '/contact'
     | '/corporate-photo-booth-noida'
@@ -250,7 +240,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
-    | '/b2b'
     | '/birthday-photo-booth-gurgaon'
     | '/contact'
     | '/corporate-photo-booth-noida'
@@ -274,7 +263,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
-    | '/b2b'
     | '/birthday-photo-booth-gurgaon'
     | '/contact'
     | '/corporate-photo-booth-noida'
@@ -299,7 +287,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  B2bRoute: typeof B2bRoute
   BirthdayPhotoBoothGurgaonRoute: typeof BirthdayPhotoBoothGurgaonRoute
   ContactRoute: typeof ContactRoute
   CorporatePhotoBoothNoidaRoute: typeof CorporatePhotoBoothNoidaRoute
@@ -335,13 +322,6 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/b2b': {
-      id: '/b2b'
-      path: '/b2b'
-      fullPath: '/b2b'
-      preLoaderRoute: typeof B2bRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/birthday-photo-booth-gurgaon': {
@@ -483,7 +463,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  B2bRoute: B2bRoute,
   BirthdayPhotoBoothGurgaonRoute: BirthdayPhotoBoothGurgaonRoute,
   ContactRoute: ContactRoute,
   CorporatePhotoBoothNoidaRoute: CorporatePhotoBoothNoidaRoute,

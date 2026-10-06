@@ -8,7 +8,7 @@ export const Route = createFileRoute("/packages")({
     pageMeta({
       title: "Photo Booth Packages | The Little Big Experience",
       description:
-        "Explore photo booth packages for corporate events, weddings and private celebrations across Delhi NCR. Share your date and needs to request pricing.",
+        "Explore Little, Big, Grand and bespoke photo booth experiences for events and celebrations across Delhi NCR.",
       path: "/packages",
       image: "birthday",
       faqItems: FAQS.slice(0, 5),
@@ -23,12 +23,12 @@ function Packages() {
         eyebrow="Packages"
         title={
           <>
-            One booth.
+            The right booth
             <br />
-            Three ways to celebrate.
+            for every celebration.
           </>
         }
-        copy="Pick the package closest to your event and we'll shape the rest around it."
+        copy="Choose from our Little, Big and Grand experiences, or tell us what you have in mind and we'll create a bespoke package."
         image="birthday"
       />
       <PackagesGrid />

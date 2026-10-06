@@ -21,7 +21,7 @@ export function EventLanding({ page }: { page: EventLandingPageContent }) {
                 alt="Guests sharing a moment around a photo booth"
                 loading="lazy"
                 width={1200}
-                height={1504}
+                height={page.image === "birthday" ? 1800 : 1504}
                 className="size-full object-cover"
               />
             </div>

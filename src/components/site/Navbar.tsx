@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS, PHONE_DISPLAY } from "@/data/site";
+import { BRAND, NAV_LINKS, PHONE_DISPLAY } from "@/data/site";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -22,10 +22,13 @@ export function Navbar() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 py-3 shadow-sm backdrop-blur-md">
         <div className="shell flex items-center justify-between gap-6">
           <Link to="/" className="shrink-0 leading-none">
-            <span className="display block text-base sm:text-lg tracking-[0.06em] text-ink">
-              The Little Big
-            </span>
-            <span className="eyebrow block text-[0.58rem] mt-0.5">Experience</span>
+            <img
+              src="/logo%20little%20big.png"
+              alt={BRAND}
+              width={1536}
+              height={1024}
+              className="h-auto w-28 sm:w-32"
+            />
           </Link>
 
           <nav className="hidden xl:flex items-center gap-7">

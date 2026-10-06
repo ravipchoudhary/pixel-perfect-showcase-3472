@@ -26,7 +26,15 @@ export function Footer() {
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <p className="display text-3xl sm:text-4xl leading-[0.95]">{BRAND}</p>
+            <div className="inline-flex rounded-sm bg-background p-2">
+              <img
+                src="/logo%20little%20big.png"
+                alt={BRAND}
+                width={1536}
+                height={1024}
+                className="h-auto w-32 sm:w-36"
+              />
+            </div>
             <p className="mt-5 text-sm text-background/60 max-w-xs">
               Premium Photo Booth &amp; Event Experiences across Delhi NCR.
             </p>

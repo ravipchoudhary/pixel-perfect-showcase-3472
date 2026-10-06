@@ -12,7 +12,7 @@ export function Hero() {
         src={IMAGES.hero}
         srcSet={IMAGE_SRCSETS.hero}
         sizes="100vw"
-        alt="Guests sharing a moment around a photo booth"
+        alt="Indian guests celebrating together at a wedding"
         width={1600}
         height={1008}
         loading="eager"
@@ -28,14 +28,14 @@ export function Hero() {
       <div className="shell relative z-10 pb-28 pt-40 md:pb-24">
         <p className="eyebrow text-background/70">Noida • Delhi • Gurgaon • Delhi NCR</p>
 
-        <h1 className="display mt-6 text-[clamp(2.75rem,9vw,8.5rem)] text-background">
+        <h1 className="display mt-6 text-[clamp(2.75rem,6vw,6.5rem)] text-background">
           <span className="block">Premium photo booth</span>
-          <span className="block">experiences in Delhi NCR</span>
+          <span className="block">experiences for</span>
+          <span className="block">unforgettable celebrations</span>
         </h1>
 
         <p className="mt-8 max-w-xl text-base sm:text-lg leading-relaxed text-background/75">
-          Interactive experiences for corporate events, weddings, birthdays and private
-          celebrations.
+          Corporate events, weddings, birthdays and celebrations across Delhi NCR.
         </p>
 
         <motion.div
@@ -44,7 +44,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.78, ease }}
           className="mt-10 flex flex-wrap gap-4"
         >
-          <ButtonLink to="/contact">Book / Enquire Now</ButtonLink>
+          <ButtonLink to="/contact">Book Your Experience</ButtonLink>
           <ButtonAnchor href={WHATSAPP_URL} target="_blank" rel="noreferrer" variant="light">
             WhatsApp Us
           </ButtonAnchor>

@@ -49,7 +49,7 @@ export function PageHero({
           loading="eager"
           fetchPriority="high"
           width={image === "hero" ? 1600 : 1200}
-          height={image === "hero" ? 1008 : 1504}
+          height={image === "hero" ? 1008 : image === "birthday" ? 1800 : 1504}
           className="size-full object-cover opacity-[0.16]"
         />
         <div className="absolute inset-0 bg-linear-to-b from-background via-background/70 to-background" />
@@ -176,10 +176,14 @@ export function EventCategories() {
                     src={IMAGES[imgs[c.slug]]}
                     srcSet={IMAGE_SRCSETS[imgs[c.slug]]}
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    alt={`${c.title} photo booth experience`}
+                    alt={
+                      c.slug === "birthdays"
+                        ? "Indian teenager celebrating a birthday with a cake"
+                        : `${c.title} photo booth experience`
+                    }
                     loading="lazy"
                     width={1200}
-                    height={1504}
+                    height={imgs[c.slug] === "birthday" ? 1800 : 1504}
                     className="size-full object-cover"
                   />
                 </div>
@@ -192,44 +196,6 @@ export function EventCategories() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function B2BSection() {
-  return (
-    <section className="section-y bg-ink text-background">
-      <div className="shell grid gap-12 lg:grid-cols-12 lg:items-center">
-        <div className="lg:col-span-7">
-          <Reveal>
-            <Eyebrow>For event professionals</Eyebrow>
-            <h2 className="display mt-6 text-4xl sm:text-5xl text-background">
-              Start your photo booth business.
-            </h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-background/70">
-              Photo booth setup, printing equipment, software, custom templates, training and
-              operational support for planners, photographers and entrepreneurs.
-            </p>
-            <ButtonLink to="/b2b" variant="light" className="mt-8">
-              Explore the B2B offer
-            </ButtonLink>
-          </Reveal>
-        </div>
-        <Reveal delay={0.08} className="lg:col-span-5">
-          <div className="hover-zoom aspect-4/3 bg-background/10">
-            <img
-              src={IMAGES.corporate}
-              srcSet={IMAGE_SRCSETS.corporate}
-              sizes="(min-width: 1024px) 41vw, 100vw"
-              alt="Photo booth equipment set up for an event"
-              loading="lazy"
-              width={1200}
-              height={1504}
-              className="size-full object-cover"
-            />
-          </div>
-        </Reveal>
       </div>
     </section>
   );
@@ -360,17 +326,19 @@ export function WorkGallery() {
               transition={{ duration: 0.6, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="group"
             >
-              <div
-                className={cn("hover-zoom bg-sand-deep", i % 5 === 0 ? "aspect-4/5" : "aspect-3/4")}
-              >
+              <div className="hover-zoom aspect-4/5 bg-sand-deep">
                 <img
                   src={IMAGES[w.image]}
                   srcSet={IMAGE_SRCSETS[w.image]}
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  alt={`${w.category} photo booth experience`}
+                  alt={
+                    w.image === "birthday"
+                      ? "Indian teenager celebrating a birthday with a cake"
+                      : `${w.category} photo booth experience`
+                  }
                   loading="lazy"
                   width={1200}
-                  height={1504}
+                  height={w.image === "birthday" ? 1800 : 1504}
                   className="size-full object-cover"
                 />
               </div>
@@ -398,58 +366,108 @@ export function PackagesGrid() {
           </Display>
         </Reveal>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {PACKAGES.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.08}>
               <div
                 className={cn(
-                  "flex h-full flex-col p-9 lg:p-11 border",
-                  "featured" in p && p.featured
-                    ? "bg-ink text-background border-ink"
-                    : "bg-background border-border",
+                  "flex h-full flex-col border p-7 sm:p-8 lg:p-10",
+                  p.featured
+                    ? "border-ink bg-ink text-background"
+                    : p.bespoke
+                      ? "border-border bg-sand"
+                      : "border-border bg-background",
                 )}
               >
                 <h3
                   className={cn(
-                    "display text-3xl",
-                    "featured" in p && p.featured ? "text-background" : "text-ink",
+                    "display text-2xl sm:text-3xl",
+                    p.featured ? "text-background" : "text-ink",
                   )}
                 >
                   {p.name}
                 </h3>
                 <p
                   className={cn(
-                    "mt-3 text-sm",
-                    "featured" in p && p.featured ? "text-background/60" : "text-muted-foreground",
+                    "mt-3 max-w-lg text-sm leading-relaxed sm:text-base",
+                    p.featured ? "text-background/65" : "text-muted-foreground",
                   )}
                 >
                   {p.for}
                 </p>
-                <p className="mt-8 text-[0.72rem] uppercase tracking-[0.18em] text-accent">
-                  {p.price}
+                {!p.bespoke && (
+                  <>
+                    <p
+                      className={cn(
+                        "mt-6 text-3xl font-medium tracking-tight sm:text-4xl",
+                        p.featured ? "text-background" : "text-ink",
+                      )}
+                    >
+                      {p.price}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {[p.duration, p.prints].map((detail) => (
+                        <span
+                          key={detail}
+                          className={cn(
+                            "border px-3 py-1.5 text-xs font-medium uppercase tracking-[0.1em]",
+                            p.featured
+                              ? "border-background/20 text-background/75"
+                              : "border-border text-muted-foreground",
+                          )}
+                        >
+                          {detail}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
+                <p
+                  className={cn(
+                    "mt-6 text-sm leading-relaxed sm:text-base",
+                    p.featured ? "text-background/80" : "text-foreground/75",
+                  )}
+                >
+                  {p.descriptionStart}
+                  <strong
+                    className={cn("font-semibold", p.featured ? "text-background" : "text-ink")}
+                  >
+                    {p.descriptionEmphasis}
+                  </strong>
+                  {p.descriptionEnd}
                 </p>
-                <ul className="mt-8 flex-1 space-y-3.5">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3 text-sm">
-                      <Check className="mt-0.5 size-4 shrink-0 text-accent" strokeWidth={1.8} />
-                      <span
-                        className={
-                          "featured" in p && p.featured
-                            ? "text-background/80"
-                            : "text-foreground/80"
-                        }
+                <div className="mt-7 flex-1">
+                  <h4
+                    className={cn(
+                      "eyebrow",
+                      p.featured && "text-background/65",
+                      p.bespoke && "text-ink",
+                    )}
+                  >
+                    Perfect for
+                  </h4>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {p.perfectFor.map((occasion) => (
+                      <li
+                        key={occasion}
+                        className={cn(
+                          "border px-3 py-1.5 text-xs leading-relaxed",
+                          p.featured
+                            ? "border-background/15 text-background/75"
+                            : "border-border bg-background/65 text-foreground/75",
+                        )}
                       >
-                        {f}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                        {occasion}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <ButtonLink
                   to="/contact"
-                  variant={"featured" in p && p.featured ? "light" : "solid"}
-                  className="mt-10 w-full"
+                  variant={p.featured ? "light" : p.bespoke ? "outline" : "solid"}
+                  className="mt-8 w-full"
                 >
-                  Get a Quote
+                  {p.bespoke ? "Let's create something unforgettable →" : "Get a Quote"}
                 </ButtonLink>
               </div>
             </Reveal>

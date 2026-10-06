@@ -13,7 +13,7 @@ const SOCIAL_IMAGE_ALTS: Record<ImageKey, string> = {
   hero: "Guests sharing a moment around a photo booth",
   corporate: "Event guests looking at printed photo booth strips",
   wedding: "Wedding guests sharing a photo booth moment",
-  birthday: "Friends posing together at a celebration",
+  birthday: "An Indian teenager celebrating a birthday with a cake",
 };
 
 export type BreadcrumbItem = {
@@ -37,7 +37,6 @@ const BREADCRUMBS: Record<string, readonly BreadcrumbItem[]> = {
   "/events/birthdays": [HOME, EVENTS, { name: "Birthdays & Celebrations" }],
   "/our-work": [HOME, { name: "Our Work" }],
   "/packages": [HOME, { name: "Packages" }],
-  "/b2b": [HOME, { name: "B2B" }],
   "/faq": [HOME, { name: "FAQ" }],
   "/contact": [HOME, { name: "Contact" }],
   "/photo-booth-rental-noida": [HOME, SERVICE_AREAS, { name: "Noida" }],

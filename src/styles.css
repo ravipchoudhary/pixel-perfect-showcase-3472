@@ -16,8 +16,8 @@
   --radius-xl: calc(var(--radius) + 6px);
   --radius-2xl: calc(var(--radius) + 10px);
 
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -49,31 +49,31 @@
 :root {
   --radius: 0.25rem;
 
-  --background: oklch(0.982 0.006 85);
-  --foreground: oklch(0.18 0.008 60);
-  --ink: oklch(0.145 0.006 60);
-  --sand: oklch(0.945 0.012 80);
-  --sand-deep: oklch(0.895 0.018 78);
-  --ochre: oklch(0.66 0.116 62);
-  --ochre-soft: oklch(0.86 0.048 72);
+  --background: #fff9f3;
+  --foreground: #3d2635;
+  --ink: #3d2635;
+  --sand: #f9f3ee;
+  --sand-deep: #f4e6d9;
+  --ochre: #e8d5b5;
+  --ochre-soft: #f4ebdf;
 
-  --card: oklch(0.995 0.004 85);
-  --card-foreground: oklch(0.18 0.008 60);
-  --popover: oklch(0.995 0.004 85);
-  --popover-foreground: oklch(0.18 0.008 60);
-  --primary: oklch(0.18 0.008 60);
-  --primary-foreground: oklch(0.982 0.006 85);
-  --secondary: oklch(0.945 0.012 80);
-  --secondary-foreground: oklch(0.18 0.008 60);
-  --muted: oklch(0.945 0.012 80);
-  --muted-foreground: oklch(0.47 0.012 65);
-  --accent: oklch(0.66 0.116 62);
-  --accent-foreground: oklch(0.99 0.004 85);
-  --destructive: oklch(0.55 0.2 27);
-  --destructive-foreground: oklch(0.99 0.004 85);
-  --border: oklch(0.885 0.012 78);
-  --input: oklch(0.885 0.012 78);
-  --ring: oklch(0.66 0.116 62);
+  --card: #fffdfb;
+  --card-foreground: #3d2635;
+  --popover: #fffdfb;
+  --popover-foreground: #3d2635;
+  --primary: #3d2635;
+  --primary-foreground: #fff9f3;
+  --secondary: #bfd8b8;
+  --secondary-foreground: #3d2635;
+  --muted: #f8efe8;
+  --muted-foreground: #5b4958;
+  --accent: #f4b6c2;
+  --accent-foreground: #3d2635;
+  --destructive: #8f4b58;
+  --destructive-foreground: #fff9f3;
+  --border: #ebdccd;
+  --input: #f7efe9;
+  --ring: #f4b6c2;
 }
 
 @layer base {
@@ -90,7 +90,14 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
   }
 
   ::selection {
@@ -115,9 +122,27 @@
 @utility display {
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 0.95;
+  line-height: 1.05;
   letter-spacing: -0.015em;
   text-transform: uppercase;
+  text-wrap: balance;
+}
+
+h1.display {
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+h2.display {
+  font-size: clamp(1.75rem, 3vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+h3.display {
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  line-height: 1.15;
 }
 
 @utility eyebrow {

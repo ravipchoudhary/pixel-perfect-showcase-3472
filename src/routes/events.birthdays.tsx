@@ -54,10 +54,10 @@ function Birthdays() {
                 src={IMAGES.birthday}
                 srcSet={IMAGE_SRCSETS.birthday}
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                alt="Guests posing together for a photo"
+                alt="Indian teenager celebrating a birthday with a cake"
                 loading="lazy"
                 width={1200}
-                height={1504}
+                height={1800}
                 className="size-full object-cover"
               />
             </div>
