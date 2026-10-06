@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Check, Minus, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ButtonAnchor, ButtonLink, Display, Eyebrow, Reveal } from "./primitives";
-import { IMAGE_SRCSETS, IMAGES, type ImageKey } from "./images";
+import { IMAGE_ALTS, IMAGE_SRCSETS, IMAGES, type ImageKey } from "./images";
 import { getPageBreadcrumbs } from "@/lib/seo";
 import {
   CUSTOMIZATION,
@@ -44,8 +44,7 @@ export function PageHero({
           src={IMAGES[image]}
           srcSet={IMAGE_SRCSETS[image]}
           sizes="100vw"
-          alt=""
-          aria-hidden="true"
+          alt={IMAGE_ALTS[image]}
           loading="eager"
           fetchPriority="high"
           width={image === "hero" ? 1600 : 1200}
@@ -359,11 +358,7 @@ export function PackagesGrid() {
       <div className="shell">
         <Reveal>
           <Eyebrow>Packages</Eyebrow>
-          <Display className="mt-6">
-            Choose the experience
-            <br />
-            that fits your event.
-          </Display>
+          <Display className="mt-6">Find your celebration fit.</Display>
         </Reveal>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -437,7 +432,7 @@ export function PackagesGrid() {
                   {p.descriptionEnd}
                 </p>
                 <div className="mt-7 flex-1">
-                  <h4
+                  <p
                     className={cn(
                       "eyebrow",
                       p.featured && "text-background/65",
@@ -445,7 +440,7 @@ export function PackagesGrid() {
                     )}
                   >
                     Perfect for
-                  </h4>
+                  </p>
                   <ul className="mt-3 flex flex-wrap gap-2">
                     {p.perfectFor.map((occasion) => (
                       <li
@@ -467,7 +462,7 @@ export function PackagesGrid() {
                   variant={p.featured ? "light" : p.bespoke ? "outline" : "solid"}
                   className="mt-8 w-full"
                 >
-                  {p.bespoke ? "Let's create something unforgettable →" : "Get a Quote"}
+                  {p.bespoke ? "Plan a Bespoke Experience" : `Choose ${p.name}`}
                 </ButtonLink>
               </div>
             </Reveal>

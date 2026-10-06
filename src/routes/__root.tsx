@@ -99,6 +99,7 @@ export const Route = createRootRoute({
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/logo%20little%20big.png" },
+      { rel: "apple-touch-icon", href: "/logo%20little%20big.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",

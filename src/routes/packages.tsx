@@ -6,9 +6,9 @@ import { FAQS } from "@/data/site";
 export const Route = createFileRoute("/packages")({
   head: () =>
     pageMeta({
-      title: "Photo Booth Packages | The Little Big Experience",
+      title: "Photo Booth Packages in Delhi NCR | Little Big Experience",
       description:
-        "Explore Little, Big, Grand and bespoke photo booth experiences for events and celebrations across Delhi NCR.",
+        "Compare Little, Big, Grand and bespoke photo booth packages for Delhi NCR celebrations.",
       path: "/packages",
       image: "birthday",
       faqItems: FAQS.slice(0, 5),
@@ -23,12 +23,12 @@ function Packages() {
         eyebrow="Packages"
         title={
           <>
-            The right booth
+            Photo booth packages
             <br />
-            for every celebration.
+            for Delhi NCR celebrations.
           </>
         }
-        copy="Choose from our Little, Big and Grand experiences, or tell us what you have in mind and we'll create a bespoke package."
+        copy="Compare Little, Big and Grand photo booth packages for Delhi NCR celebrations, or request a bespoke package."
         image="birthday"
       />
       <PackagesGrid />

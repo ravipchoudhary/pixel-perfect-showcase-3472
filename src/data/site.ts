@@ -235,9 +235,9 @@ export const PACKAGES = [
     price: null,
     duration: null,
     prints: null,
-    descriptionStart: "Have something beyond our standard packages in mind? ",
-    descriptionEmphasis:
-      "Tell us what you're planning, and we'll create a bespoke experience tailored to your event.",
+    descriptionStart:
+      "Have something beyond our standard packages in mind? Tell us what you're planning. ",
+    descriptionEmphasis: "We'll tailor a bespoke experience to your event.",
     descriptionEnd: "",
     perfectFor: [
       "Large corporate events",
