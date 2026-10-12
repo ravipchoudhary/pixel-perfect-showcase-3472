@@ -1,12 +1,11 @@
 import hero from "@/assets/hero.webp";
 import heroSmall from "@/assets/hero-800.webp";
-import corporate from "@/assets/corporate.webp";
-import corporateSmall from "@/assets/corporate-600.webp";
 import wedding from "@/assets/wedding.webp";
 import weddingSmall from "@/assets/wedding-600.webp";
 import birthday from "@/assets/birthday.webp";
 import birthdaySmall from "@/assets/birthday-600.webp";
 
+const corporate = "/event-gallery/corporate-prints.webp";
 const corporateTable = "/event-gallery/corporate-01.webp";
 const corporateAudience = "/event-gallery/corporate-02.webp";
 const corporateStage = "/event-gallery/corporate-03.webp";
@@ -18,6 +17,8 @@ const birthdayCake = "/event-gallery/birthday-02.webp";
 const birthdayConfetti = "/event-gallery/birthday-03.webp";
 
 const eventGallerySrcSets = {
+  corporatePrints:
+    "/event-gallery/corporate-prints-600.webp 600w, /event-gallery/corporate-prints.webp 1254w",
   corporateTable:
     "/event-gallery/corporate-01-600.webp 600w, /event-gallery/corporate-01.webp 1000w",
   corporateAudience:
@@ -54,7 +55,7 @@ export type ImageKey = keyof typeof IMAGES;
 
 export const IMAGE_ALTS: Record<ImageKey, string> = {
   hero: "Indian guests enjoying a photo booth at a wedding",
-  corporate: "Indian guests holding photo prints at a corporate event",
+  corporate: "Custom photo-booth print-strip designs for celebrations",
   corporateTable: "A decorated table at a corporate celebration",
   corporateAudience: "Guests attending a corporate event",
   corporateStage: "A speaker presenting at a company event",
@@ -70,7 +71,7 @@ export const IMAGE_ALTS: Record<ImageKey, string> = {
 
 export const IMAGE_SRCSETS: Record<ImageKey, string> = {
   hero: `${heroSmall} 800w, ${hero} 1600w`,
-  corporate: `${corporateSmall} 600w, ${corporate} 1200w`,
+  corporate: eventGallerySrcSets.corporatePrints,
   corporateTable: eventGallerySrcSets.corporateTable,
   corporateAudience: eventGallerySrcSets.corporateAudience,
   corporateStage: eventGallerySrcSets.corporateStage,

@@ -4,7 +4,7 @@ import { pageMeta } from "@/lib/seo";
 import { ButtonLink, Display, Eyebrow, Reveal } from "@/components/site/primitives";
 import { CTASection, EventPhotoGallery, PageHero, WhyChooseUs } from "@/components/site/sections";
 import { EVENT_CATEGORIES } from "@/data/site";
-import { EVENT_GALLERY_IMAGES, IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
+import { EVENT_GALLERY_IMAGES, IMAGE_ALTS, IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
 
 const BRANDING = [
   "Branded photo templates",
@@ -54,10 +54,10 @@ function Corporate() {
                 src={IMAGES.corporate}
                 srcSet={IMAGE_SRCSETS.corporate}
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                alt="Guests holding printed photo strips"
+                alt={IMAGE_ALTS.corporate}
                 loading="lazy"
-                width={1200}
-                height={1504}
+                width={1254}
+                height={1254}
                 className="size-full object-cover"
               />
             </div>
@@ -120,11 +120,11 @@ function Corporate() {
           <div>
             <Eyebrow>Local enquiries</Eyebrow>
             <Display className="mt-5 text-3xl sm:text-4xl">
-              Planning a corporate event in Noida?
+              Planning a corporate event in Delhi NCR?
             </Display>
           </div>
-          <ButtonLink to="/corporate-photo-booth-noida" variant="outline">
-            Corporate Photo Booth in Noida
+          <ButtonLink to="/photo-booth-rental-delhi-ncr" variant="outline">
+            Corporate Photo Booth in Delhi NCR
           </ButtonLink>
         </div>
       </section>
