@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { ButtonLink, Display, Eyebrow, Reveal } from "@/components/site/primitives";
-import { CTASection, PageHero, WhyChooseUs } from "@/components/site/sections";
-import { IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
+import { CTASection, EventPhotoGallery, PageHero, WhyChooseUs } from "@/components/site/sections";
+import { EVENT_GALLERY_IMAGES, IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
 
 const PERFECT_FOR = [
   "Teen birthdays",
@@ -90,6 +90,7 @@ function Birthdays() {
       </section>
 
       <WhyChooseUs />
+      <EventPhotoGallery images={EVENT_GALLERY_IMAGES.birthday} />
       <section className="section-y bg-sand">
         <div className="shell flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>

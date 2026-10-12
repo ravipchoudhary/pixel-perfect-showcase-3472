@@ -150,7 +150,7 @@ export function ExperienceGrid() {
 
 export function EventCategories() {
   const imgs = {
-    corporate: "corporate",
+    corporate: "corporateAudience",
     weddings: "wedding",
     birthdays: "birthday",
   } as const satisfies Record<(typeof EVENT_CATEGORIES)[number]["slug"], ImageKey>;
@@ -242,10 +242,10 @@ export function Customization() {
         <Reveal>
           <div className="hover-zoom aspect-4/5 lg:aspect-square bg-sand">
             <img
-              src={IMAGES.corporate}
-              srcSet={IMAGE_SRCSETS.corporate}
+              src={IMAGES.corporateStage}
+              srcSet={IMAGE_SRCSETS.corporateStage}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              alt="A photo template being printed"
+              alt={IMAGE_ALTS.corporateStage}
               loading="lazy"
               width={1200}
               height={1504}
@@ -271,6 +271,43 @@ export function Customization() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Event photo gallery ---------------- */
+
+export function EventPhotoGallery({
+  images,
+}: {
+  images: readonly { src: string; srcSet: string; alt: string }[];
+}) {
+  return (
+    <section className="section-y bg-background">
+      <div className="shell">
+        <Reveal>
+          <Eyebrow>Event Gallery</Eyebrow>
+          <Display className="mt-6">Moments worth keeping.</Display>
+        </Reveal>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {images.map((image, index) => (
+            <Reveal key={image.src} delay={index * 0.06}>
+              <div className="hover-zoom aspect-4/3 bg-sand">
+                <img
+                  src={image.src}
+                  srcSet={image.srcSet}
+                  sizes="(min-width: 1024px) 28vw, (min-width: 640px) 50vw, 100vw"
+                  alt={image.alt}
+                  loading="lazy"
+                  width={1000}
+                  height={750}
+                  className="size-full object-cover"
+                />
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

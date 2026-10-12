@@ -16,6 +16,7 @@ export type LocationLandingPageContent = {
   intro: string;
   secondary: string;
   image: ImageKey;
+  secondaryImage: ImageKey;
   serviceAreaCopy: string;
   serviceAreas: readonly string[];
   eventSections: readonly LocationEventSection[];
@@ -32,6 +33,7 @@ function makeLocationPage({
   intro,
   secondary,
   image,
+  secondaryImage,
   serviceAreaCopy,
   serviceAreas,
   eventCopy,
@@ -43,6 +45,7 @@ function makeLocationPage({
   intro: string;
   secondary: string;
   image: ImageKey;
+  secondaryImage: ImageKey;
   serviceAreaCopy: string;
   serviceAreas: readonly string[];
   eventCopy: readonly [string, string, string];
@@ -55,6 +58,7 @@ function makeLocationPage({
     intro,
     secondary,
     image,
+    secondaryImage,
     serviceAreaCopy,
     serviceAreas,
     eventSections: [
@@ -98,7 +102,8 @@ export const LOCATION_PAGES = {
       "An interactive photo booth experience for Noida events, with instant prints and digital sharing for guests to enjoy in the moment.",
     secondary:
       "From office celebrations to wedding festivities and milestone birthdays, the booth gives guests a shared activity and a photo to keep.",
-    image: "corporate",
+    image: "corporateTable",
+    secondaryImage: "corporateAudience",
     serviceAreaCopy:
       "Noida bookings can be discussed alongside events in nearby Greater Noida and the wider Delhi NCR service area. Share the venue and date to check availability.",
     serviceAreas: ["Noida", "Greater Noida", "Delhi", "Gurgaon", "Delhi NCR"],
@@ -119,6 +124,7 @@ export const LOCATION_PAGES = {
     secondary:
       "The experience works across formal company occasions and personal celebrations, with templates tailored to the event rather than a fixed design.",
     image: "wedding",
+    secondaryImage: "weddingCouple",
     serviceAreaCopy:
       "Greater Noida events can be planned with coverage across Noida and Delhi NCR. Tell us the venue, event date and approximate guest count for an availability check.",
     serviceAreas: ["Greater Noida", "Noida", "Delhi", "Gurgaon", "Delhi NCR"],
@@ -139,6 +145,7 @@ export const LOCATION_PAGES = {
     secondary:
       "Whether the gathering is a company celebration or a personal milestone, a professional attendant looks after the booth while guests take part.",
     image: "birthday",
+    secondaryImage: "birthdayBalloons",
     serviceAreaCopy:
       "We discuss Delhi bookings as part of the wider Delhi NCR service area. Send the event date and venue or city so we can confirm availability.",
     serviceAreas: ["Delhi", "Noida", "Greater Noida", "Gurgaon", "Delhi NCR"],
@@ -158,7 +165,8 @@ export const LOCATION_PAGES = {
       "Bring a guest-friendly photo experience to your Gurgaon celebration, with unlimited photos, instant prints and digital sharing.",
     secondary:
       "From a branded office gathering to a wedding evening or house party, the setup is shaped around the occasion and supported by a professional attendant.",
-    image: "corporate",
+    image: "corporateStage",
+    secondaryImage: "corporateTable",
     serviceAreaCopy:
       "Gurgaon is part of our stated Delhi NCR service area. Include your venue or city, preferred date and event details when you enquire.",
     serviceAreas: ["Gurgaon", "Delhi", "Noida", "Greater Noida", "Delhi NCR"],
@@ -179,6 +187,7 @@ export const LOCATION_PAGES = {
     secondary:
       "Choose the event, share the location and shape a custom template around the occasion. A professional attendant manages the booth while guests enjoy it.",
     image: "hero",
+    secondaryImage: "corporateAudience",
     serviceAreaCopy:
       "Service-area enquiries include Noida, Greater Noida, Delhi and Gurgaon. Availability depends on the event date and location, so contact us with both to discuss your booking.",
     serviceAreas: ["Noida", "Greater Noida", "Delhi", "Gurgaon", "Delhi NCR"],
@@ -197,6 +206,7 @@ export type EventLandingPageContent = {
   h1: string;
   intro: string;
   image: ImageKey;
+  secondaryImage: ImageKey;
   serviceType: string;
   serviceArea: string;
   focusHeading: string;
@@ -218,7 +228,8 @@ export const EVENT_LANDING_PAGES = {
     h1: "Corporate Photo Booth in Noida",
     intro:
       "Give colleagues and guests an easy way to take part in your Noida company event, with instant prints and custom templates for your brand.",
-    image: "corporate",
+    image: "corporateAudience",
+    secondaryImage: "corporateStage",
     serviceType: "Corporate photo booth experience",
     serviceArea: "Noida",
     focusHeading: "For the moments that bring a team together.",
@@ -253,6 +264,7 @@ export const EVENT_LANDING_PAGES = {
     intro:
       "Give wedding guests a place to gather, make photos together and take home instant prints from the celebration.",
     image: "wedding",
+    secondaryImage: "weddingVenue",
     serviceType: "Wedding photo booth experience",
     serviceArea: "Delhi NCR",
     focusHeading: "A little more to remember from the day.",
@@ -287,6 +299,7 @@ export const EVENT_LANDING_PAGES = {
     intro:
       "Make room for a shared photo moment at a Gurgaon birthday or private celebration, with unlimited photos, instant prints and digital sharing.",
     image: "birthday",
+    secondaryImage: "birthdayCake",
     serviceType: "Birthday photo booth experience",
     serviceArea: "Gurgaon",
     focusHeading: "A birthday activity everyone can join.",

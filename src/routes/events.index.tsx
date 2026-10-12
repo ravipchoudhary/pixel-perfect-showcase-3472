@@ -11,7 +11,7 @@ export const Route = createFileRoute("/events/")({
       description:
         "Explore corporate events, weddings, birthdays and private celebrations suited to our photo booth experience across Delhi NCR. Find your occasion and enquire.",
       path: "/events",
-      image: "corporate",
+      image: "corporateStage",
     }),
   component: Events,
 });
@@ -29,7 +29,7 @@ function Events() {
           </>
         }
         copy="From annual days to after-parties, we bring a booth people actually gather around."
-        image="corporate"
+        image="corporateStage"
       />
 
       <EventCategories />

@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { ButtonLink, Display, Eyebrow, Reveal } from "@/components/site/primitives";
-import { CTASection, PageHero, WhyChooseUs } from "@/components/site/sections";
+import { CTASection, EventPhotoGallery, PageHero, WhyChooseUs } from "@/components/site/sections";
 import { EVENT_CATEGORIES } from "@/data/site";
-import { IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
+import { EVENT_GALLERY_IMAGES, IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
 
 const BRANDING = [
   "Branded photo templates",
@@ -43,7 +43,7 @@ function Corporate() {
           </>
         }
         copy="From Annual Days and Diwali celebrations to employee engagement events and brand activations, our photo booths give employees something fun to do, share and remember."
-        image="corporate"
+        image="hero"
       />
 
       <section className="section-y bg-background pt-0">
@@ -114,6 +114,7 @@ function Corporate() {
       </section>
 
       <WhyChooseUs />
+      <EventPhotoGallery images={EVENT_GALLERY_IMAGES.corporate} />
       <section className="section-y bg-sand">
         <div className="shell flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>

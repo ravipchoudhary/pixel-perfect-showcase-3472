@@ -5,15 +5,33 @@ export const SITE_ORIGIN = "https://thelittlebigexperience.com";
 export const SOCIAL_IMAGES: Record<ImageKey, string> = {
   hero: "/og/brand.jpg",
   corporate: "/og/corporate.jpg",
+  corporateTable: "/og/corporate.jpg",
+  corporateAudience: "/og/corporate.jpg",
+  corporateStage: "/og/corporate.jpg",
   wedding: "/og/wedding.jpg",
+  weddingCouple: "/og/wedding.jpg",
+  weddingVenue: "/og/wedding.jpg",
+  weddingCelebration: "/og/wedding.jpg",
   birthday: "/og/celebrations.jpg",
+  birthdayBalloons: "/og/celebrations.jpg",
+  birthdayCake: "/og/celebrations.jpg",
+  birthdayConfetti: "/og/celebrations.jpg",
 };
 
 const SOCIAL_IMAGE_ALTS: Record<ImageKey, string> = {
   hero: "Guests sharing a moment around a photo booth",
   corporate: "Event guests looking at printed photo booth strips",
+  corporateTable: "Event guests looking at printed photo booth strips",
+  corporateAudience: "Event guests looking at printed photo booth strips",
+  corporateStage: "Event guests looking at printed photo booth strips",
   wedding: "Wedding guests sharing a photo booth moment",
+  weddingCouple: "Wedding guests sharing a photo booth moment",
+  weddingVenue: "Wedding guests sharing a photo booth moment",
+  weddingCelebration: "Wedding guests sharing a photo booth moment",
   birthday: "An Indian teenager celebrating a birthday with a cake",
+  birthdayBalloons: "An Indian teenager celebrating a birthday with a cake",
+  birthdayCake: "An Indian teenager celebrating a birthday with a cake",
+  birthdayConfetti: "An Indian teenager celebrating a birthday with a cake",
 };
 
 export type BreadcrumbItem = {

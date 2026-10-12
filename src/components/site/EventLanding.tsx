@@ -3,7 +3,7 @@ import { EXPERIENCES } from "@/data/site";
 import type { EventLandingPageContent } from "@/data/landingPages";
 import { ButtonLink, Display, Eyebrow, Reveal } from "./primitives";
 import { CTASection, FaqSection, PageHero, WhyChooseUs } from "./sections";
-import { IMAGE_SRCSETS, IMAGES } from "./images";
+import { IMAGE_ALTS, IMAGE_SRCSETS, IMAGES } from "./images";
 
 export function EventLanding({ page }: { page: EventLandingPageContent }) {
   return (
@@ -15,13 +15,13 @@ export function EventLanding({ page }: { page: EventLandingPageContent }) {
           <Reveal>
             <div className="hover-zoom aspect-4/5 bg-sand">
               <img
-                src={IMAGES[page.image]}
-                srcSet={IMAGE_SRCSETS[page.image]}
+                src={IMAGES[page.secondaryImage]}
+                srcSet={IMAGE_SRCSETS[page.secondaryImage]}
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                alt="Guests sharing a moment around a photo booth"
+                alt={IMAGE_ALTS[page.secondaryImage]}
                 loading="lazy"
                 width={1200}
-                height={page.image === "birthday" ? 1800 : 1504}
+                height={page.secondaryImage === "birthday" ? 1800 : 1504}
                 className="size-full object-cover"
               />
             </div>

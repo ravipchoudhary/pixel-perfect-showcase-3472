@@ -16,13 +16,13 @@ const PRIVACY_SECTIONS: readonly LegalSection[] = [
     title: "How information is used",
     paragraphs: [
       "Information you choose to provide is used to respond to your enquiry, discuss event availability and prepare a quotation when requested.",
-      "The website does not currently include an analytics provider or advertising tracker. It loads typefaces from Google Fonts and links to third-party communication and social services, which may process data under their own policies.",
+      "Google Analytics is loaded only when a valid GA4 measurement ID is configured for the deployed build. When enabled, it receives page-view and device/browser information under Google's policies. The site does not include advertising trackers.",
     ],
   },
   {
     title: "Cookies and retention",
     paragraphs: [
-      "The site does not intentionally set analytics or advertising cookies. Your browser and any third-party service you choose to open may apply their own storage or privacy controls.",
+      "Analytics cookies are set only when Google Analytics is enabled in the deployed build. Your browser and any third-party service you choose to open may apply their own storage or privacy controls.",
       "Enquiry details are not retained by this website. Messages in WhatsApp, email or other services remain subject to those services and the settings of the accounts used in the conversation.",
     ],
   },

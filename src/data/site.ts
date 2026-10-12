@@ -166,11 +166,11 @@ export const CUSTOMIZATION = [
 export type WorkItem = {
   category:
     "Corporate Celebrations" | "Wedding Experiences" | "Birthday Celebrations" | "Private Events";
-  image: "corporate" | "wedding" | "birthday" | "hero";
+  image: "corporateStage" | "wedding" | "birthday" | "hero";
 };
 
 export const WORK: WorkItem[] = [
-  { category: "Corporate Celebrations", image: "corporate" },
+  { category: "Corporate Celebrations", image: "corporateStage" },
   { category: "Wedding Experiences", image: "wedding" },
   { category: "Birthday Celebrations", image: "birthday" },
   { category: "Private Events", image: "hero" },
@@ -195,7 +195,7 @@ export const PACKAGES = [
     for: "For parties where the booth is part of the entertainment",
     price: "₹18,000",
     duration: "3 Hours",
-    prints: "300 Prints",
+    prints: "500 Prints",
     descriptionStart:
       "More time for guests to actually enjoy the booth, with the photo booth becoming a ",
     descriptionEmphasis: "proper entertainment zone",

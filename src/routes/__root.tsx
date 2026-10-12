@@ -5,6 +5,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  useRouterState,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { MotionConfig } from "motion/react";
@@ -13,6 +14,16 @@ import appCss from "../styles.css?url";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingCTA } from "@/components/site/FloatingCTA";
+
+const GOOGLE_ANALYTICS_ID = import.meta.env["VITE_GA_MEASUREMENT_ID"];
+const VALID_GOOGLE_ANALYTICS_ID =
+  GOOGLE_ANALYTICS_ID && /^G-[A-Z0-9]+$/.test(GOOGLE_ANALYTICS_ID) ? GOOGLE_ANALYTICS_ID : null;
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 function NotFoundComponent() {
   useEffect(() => {
@@ -100,17 +111,25 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/logo%20little%20big.png" },
       { rel: "apple-touch-icon", href: "/logo%20little%20big.png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
+        rel: "preload",
+        href: "/fonts/poppins-400.woff2",
+        as: "font",
+        type: "font/woff2",
         crossOrigin: "anonymous",
       },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap",
-      },
     ],
+    scripts: VALID_GOOGLE_ANALYTICS_ID
+      ? [
+          {
+            src: `https://www.googletagmanager.com/gtag/js?id=${VALID_GOOGLE_ANALYTICS_ID}`,
+            async: true,
+          },
+          {
+            children: `window.dataLayer=window.dataLayer||[];function gtag(){window.dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${VALID_GOOGLE_ANALYTICS_ID}',{send_page_view:false});`,
+          },
+        ]
+      : undefined,
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -133,6 +152,14 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
+  const pageHref = useRouterState({ select: (state) => state.location.href });
+
+  useEffect(() => {
+    if (VALID_GOOGLE_ANALYTICS_ID && window.gtag) {
+      window.gtag("event", "page_view", { page_path: pageHref });
+    }
+  }, [pageHref]);
+
   return (
     <MotionConfig reducedMotion="user">
       <>

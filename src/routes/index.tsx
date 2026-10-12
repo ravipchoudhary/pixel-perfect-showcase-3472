@@ -14,7 +14,7 @@ import {
   WorkGallery,
 } from "@/components/site/sections";
 import { FAQS } from "@/data/site";
-import { IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
+import { IMAGE_ALTS, IMAGE_SRCSETS, IMAGES } from "@/components/site/images";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -37,10 +37,10 @@ function Intro() {
         <Reveal>
           <div className="hover-zoom aspect-4/5 bg-sand">
             <img
-              src={IMAGES.corporate}
-              srcSet={IMAGE_SRCSETS.corporate}
+              src={IMAGES.corporateTable}
+              srcSet={IMAGE_SRCSETS.corporateTable}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              alt="Indian guests enjoying a photo booth at a corporate celebration"
+              alt={IMAGE_ALTS.corporateTable}
               loading="lazy"
               width={1200}
               height={1504}
