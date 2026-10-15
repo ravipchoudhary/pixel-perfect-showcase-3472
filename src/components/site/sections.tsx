@@ -242,13 +242,13 @@ export function Customization() {
         <Reveal>
           <div className="hover-zoom aspect-4/5 lg:aspect-square bg-sand">
             <img
-              src={IMAGES.corporateStage}
-              srcSet={IMAGE_SRCSETS.corporateStage}
+              src={IMAGES.corporate}
+              srcSet={IMAGE_SRCSETS.corporate}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              alt={IMAGE_ALTS.corporateStage}
+              alt={IMAGE_ALTS.corporate}
               loading="lazy"
-              width={1200}
-              height={1504}
+              width={1254}
+              height={1254}
               className="size-full object-cover"
             />
           </div>
@@ -368,9 +368,11 @@ export function WorkGallery() {
                   srcSet={IMAGE_SRCSETS[w.image]}
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   alt={
-                    w.image === "birthday"
-                      ? "Indian teenager celebrating a birthday with a cake"
-                      : `${w.category} photo booth experience`
+                    w.image === "corporate"
+                      ? IMAGE_ALTS.corporate
+                      : w.image === "birthday"
+                        ? IMAGE_ALTS.birthday
+                        : `${w.category} photo booth experience`
                   }
                   loading="lazy"
                   width={1200}

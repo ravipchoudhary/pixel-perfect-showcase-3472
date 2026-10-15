@@ -166,11 +166,11 @@ export const CUSTOMIZATION = [
 export type WorkItem = {
   category:
     "Corporate Celebrations" | "Wedding Experiences" | "Birthday Celebrations" | "Private Events";
-  image: "corporateStage" | "wedding" | "birthday" | "hero";
+  image: "corporate" | "wedding" | "birthday" | "hero";
 };
 
 export const WORK: WorkItem[] = [
-  { category: "Corporate Celebrations", image: "corporateStage" },
+  { category: "Corporate Celebrations", image: "corporate" },
   { category: "Wedding Experiences", image: "wedding" },
   { category: "Birthday Celebrations", image: "birthday" },
   { category: "Private Events", image: "hero" },
