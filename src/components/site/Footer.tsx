@@ -117,6 +117,14 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-background/15 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-[0.7rem] uppercase tracking-[0.16em] text-background/65">
           <p>© 2026 {BRAND}. All Rights Reserved.</p>
           <div className="flex gap-6">
+            <a
+              href="https://encogix.com"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-background"
+            >
+              Designed by Encogix Technology Pvt Ltd
+            </a>
             <Link to="/privacy-policy" className="hover:text-background">
               Privacy Policy
             </Link>
