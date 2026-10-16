@@ -37,13 +37,13 @@ function Intro() {
         <Reveal>
           <div className="hover-zoom aspect-4/5 bg-sand">
             <img
-              src={IMAGES.corporateTable}
-              srcSet={IMAGE_SRCSETS.corporateTable}
+              src={IMAGES.corporate}
+              srcSet={IMAGE_SRCSETS.corporate}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              alt={IMAGE_ALTS.corporateTable}
+              alt={IMAGE_ALTS.corporate}
               loading="lazy"
-              width={1200}
-              height={1504}
+              width={1254}
+              height={1254}
               className="size-full object-cover"
             />
           </div>
