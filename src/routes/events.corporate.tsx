@@ -43,21 +43,21 @@ function Corporate() {
           </>
         }
         copy="From Annual Days and Diwali celebrations to employee engagement events and brand activations, our photo booths give employees something fun to do, share and remember."
-        image="hero"
+        image="corporateTable"
       />
 
       <section className="section-y bg-background pt-0">
         <div className="shell grid gap-14 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <div className="hover-zoom aspect-4/5 bg-sand">
+            <div className="hover-zoom aspect-4/3 bg-sand">
               <img
-                src={IMAGES.corporate}
-                srcSet={IMAGE_SRCSETS.corporate}
+                src={IMAGES.corporateBoothEvent}
+                srcSet={IMAGE_SRCSETS.corporateBoothEvent}
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                alt={IMAGE_ALTS.corporate}
+                alt={IMAGE_ALTS.corporateBoothEvent}
                 loading="lazy"
-                width={1254}
-                height={1254}
+                width={1152}
+                height={768}
                 className="size-full object-cover"
               />
             </div>

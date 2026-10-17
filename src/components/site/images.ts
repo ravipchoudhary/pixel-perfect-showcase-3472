@@ -1,14 +1,18 @@
 import hero from "@/assets/hero.webp";
 import heroSmall from "@/assets/hero-800.webp";
+import corporateBooth from "@/assets/corporate.webp";
+import corporateBoothSmall from "@/assets/corporate-600.webp";
 import wedding from "@/assets/wedding.webp";
 import weddingSmall from "@/assets/wedding-600.webp";
 import birthday from "@/assets/birthday.webp";
 import birthdaySmall from "@/assets/birthday-600.webp";
 
 const corporate = "/event-gallery/corporate-prints.webp";
-const corporateTable = "/event-gallery/corporate-01.webp";
+const corporateTable = corporateBooth;
 const corporateAudience = "/event-gallery/corporate-02.webp";
 const corporateStage = "/event-gallery/corporate-03.webp";
+const corporateMeeting = "/event-gallery/corporate-meeting-01.png";
+const corporateBoothEvent = "/event-gallery/corporate-booth-01.png";
 const weddingCouple = "/event-gallery/wedding-01.webp";
 const weddingVenue = "/event-gallery/wedding-02.webp";
 const weddingCelebration = "/event-gallery/wedding-03.webp";
@@ -19,8 +23,7 @@ const birthdayConfetti = "/event-gallery/birthday-03.webp";
 const eventGallerySrcSets = {
   corporatePrints:
     "/event-gallery/corporate-prints-600.webp 600w, /event-gallery/corporate-prints.webp 1254w",
-  corporateTable:
-    "/event-gallery/corporate-01-600.webp 600w, /event-gallery/corporate-01.webp 1000w",
+  corporateTable: `${corporateBoothSmall} 600w, ${corporateBooth} 1200w`,
   corporateAudience:
     "/event-gallery/corporate-02-600.webp 600w, /event-gallery/corporate-02.webp 1000w",
   corporateStage:
@@ -42,6 +45,8 @@ export const IMAGES = {
   corporateTable,
   corporateAudience,
   corporateStage,
+  corporateMeeting,
+  corporateBoothEvent,
   wedding,
   weddingCouple,
   weddingVenue,
@@ -56,9 +61,11 @@ export type ImageKey = keyof typeof IMAGES;
 export const IMAGE_ALTS: Record<ImageKey, string> = {
   hero: "Indian guests enjoying a photo booth at a wedding",
   corporate: "Custom photo-booth print-strip designs for celebrations",
-  corporateTable: "A decorated table at a corporate celebration",
-  corporateAudience: "Guests attending a corporate event",
-  corporateStage: "A speaker presenting at a company event",
+  corporateTable: "Corporate event guests holding photo strips beside a photo booth",
+  corporateAudience: "Audience attending a corporate conference",
+  corporateStage: "Presenter speaking at a corporate event",
+  corporateMeeting: "Indian colleagues sharing ideas at a corporate conference",
+  corporateBoothEvent: "Indian colleagues posing together at a corporate event photo booth",
   wedding: "Indian couple celebrating with friends at a wedding",
   weddingCouple: "A newlywed couple with a wedding bouquet",
   weddingVenue: "A decorated wedding reception venue",
@@ -75,6 +82,8 @@ export const IMAGE_SRCSETS: Record<ImageKey, string> = {
   corporateTable: eventGallerySrcSets.corporateTable,
   corporateAudience: eventGallerySrcSets.corporateAudience,
   corporateStage: eventGallerySrcSets.corporateStage,
+  corporateMeeting: `${corporateMeeting} 1152w`,
+  corporateBoothEvent: `${corporateBoothEvent} 1152w`,
   wedding: `${weddingSmall} 600w, ${wedding} 1200w`,
   weddingCouple: eventGallerySrcSets.weddingCouple,
   weddingVenue: eventGallerySrcSets.weddingVenue,
@@ -93,14 +102,14 @@ export const EVENT_GALLERY_IMAGES = {
       alt: IMAGE_ALTS.corporateTable,
     },
     {
-      src: corporateAudience,
-      srcSet: eventGallerySrcSets.corporateAudience,
-      alt: IMAGE_ALTS.corporateAudience,
+      src: corporateMeeting,
+      srcSet: IMAGE_SRCSETS.corporateMeeting,
+      alt: IMAGE_ALTS.corporateMeeting,
     },
     {
-      src: corporateStage,
-      srcSet: eventGallerySrcSets.corporateStage,
-      alt: IMAGE_ALTS.corporateStage,
+      src: corporateBoothEvent,
+      srcSet: `${corporateBoothEvent} 1152w`,
+      alt: "Indian colleagues posing together at a corporate event photo booth",
     },
   ],
   wedding: [

@@ -150,7 +150,7 @@ export function ExperienceGrid() {
 
 export function EventCategories() {
   const imgs = {
-    corporate: "corporateAudience",
+    corporate: "corporateMeeting",
     weddings: "wedding",
     birthdays: "birthday",
   } as const satisfies Record<(typeof EVENT_CATEGORIES)[number]["slug"], ImageKey>;
@@ -178,7 +178,9 @@ export function EventCategories() {
                     alt={
                       c.slug === "birthdays"
                         ? "Indian teenager celebrating a birthday with a cake"
-                        : `${c.title} photo booth experience`
+                        : c.slug === "corporate"
+                          ? IMAGE_ALTS.corporateMeeting
+                          : `${c.title} photo booth experience`
                     }
                     loading="lazy"
                     width={1200}
@@ -291,9 +293,21 @@ export function EventPhotoGallery({
           <Eyebrow>Event Gallery</Eyebrow>
           <Display className="mt-6">Moments worth keeping.</Display>
         </Reveal>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          className={
+            images.length === 1
+              ? "mt-10 flex justify-center"
+              : images.length === 2
+                ? "mx-auto mt-10 grid max-w-5xl gap-5 sm:grid-cols-2"
+                : "mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          }
+        >
           {images.map((image, index) => (
-            <Reveal key={image.src} delay={index * 0.06}>
+            <Reveal
+              key={image.src}
+              delay={index * 0.06}
+              className={images.length === 1 ? "w-full max-w-3xl" : ""}
+            >
               <div className="hover-zoom aspect-4/3 bg-sand">
                 <img
                   src={image.src}
@@ -368,15 +382,17 @@ export function WorkGallery() {
                   srcSet={IMAGE_SRCSETS[w.image]}
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   alt={
-                    w.image === "corporate"
-                      ? IMAGE_ALTS.corporate
+                    w.image === "corporateBoothEvent"
+                      ? IMAGE_ALTS.corporateBoothEvent
                       : w.image === "birthday"
                         ? IMAGE_ALTS.birthday
                         : `${w.category} photo booth experience`
                   }
                   loading="lazy"
-                  width={1200}
-                  height={w.image === "birthday" ? 1800 : 1504}
+                  width={w.image === "corporateBoothEvent" ? 1152 : 1200}
+                  height={
+                    w.image === "corporateBoothEvent" ? 768 : w.image === "birthday" ? 1800 : 1504
+                  }
                   className="size-full object-cover"
                 />
               </div>
